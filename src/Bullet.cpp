@@ -32,13 +32,13 @@ void Bullet::Draw() {
   mesh_.clear();
   switch (color_) {
   case RED:
-    ofSetColor(255, 0, 0);
+    ofSetColor(232, 60, 55);
     break;
   case GREEN:
-    ofSetColor(0, 255, 0);
+    ofSetColor(72, 232, 124);
     break;
   case BLUE:
-    ofSetColor(0, 0, 255);
+    ofSetColor(53, 61, 255);
     break;
   }
   for (auto& particle : particles) {
