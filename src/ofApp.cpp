@@ -1,0 +1,108 @@
+#include "ofApp.h"
+
+void ofApp::setup() {
+#ifdef USE_DIMENCO_OPENGL_INTERFACE
+  dimencoInit();
+  dimencoInitState();
+#endif
+
+  ofSetFrameRate(60);
+  ofSetVerticalSync(true);
+  // ofSetLogLevel(OF_LOG_VERBOSE);
+
+  // post.init(ofGetWidth(), ofGetHeight());
+  // post.createPass<FxaaPass>()->setEnabled(true);
+  // post.createPass<BloomPass>()->setEnabled(true);
+  // post.createPass<DofPass>()->setEnabled(false);
+  // post.createPass<SSAOPass>()->setEnabled(true);
+
+  leap.open();
+  leap.setReceiveBackgroundFrames(true);
+  cam.setOrientation(ofPoint(-20, 0, 0));
+  light.setPosition(1000, 1000, 2000);
+
+  glEnable(GL_DEPTH_TEST);
+  glEnable(GL_NORMALIZE);
+}
+
+void ofApp::update() {
+  fingersFound.clear();
+  simpleHands = leap.getSimpleHands();
+
+  if (leap.isFrameNew() && simpleHands.size()) {
+    leap.setMappingX(-230, 230, -ofGetWidth() / 2, ofGetWidth() / 2);
+    leap.setMappingY(90, 490, -ofGetHeight() / 2, ofGetHeight() / 2);
+    leap.setMappingZ(-150, 150, -200, 200);
+  }
+  leap.markFrameAsOld();
+  weapon.Update();
+}
+
+void ofApp::draw() {
+  ofBackgroundGradient(ofColor(90, 90, 90), ofColor(30, 30, 30),
+                       OF_GRADIENT_BAR);
+  glPushAttrib(GL_ENABLE_BIT);
+  light.enable();
+#ifdef USE_DIMENCO_OPENGL_INTERFACE
+  dimencoSetBackgroundState();
+#endif
+  // post.begin(cam);
+  cam.begin(ofRectangle(0, 0, ofGetWidth(), ofGetHeight()));
+  ofSetColor(200, 0, 0);
+  ofDrawBitmapString("Leap Connected? " + ofToString(leap.isConnected()),
+                     -ofGetWidth() / 2 - 200, -ofGetHeight() / 2);
+  ofDrawBitmapString(ofToString(ofGetFrameRate()), ofGetWidth() / 2 + 100,
+                     -ofGetHeight() / 2);
+
+  ofPushMatrix();
+  ofRotate(90, 0, 0, 1);
+  ofSetColor(20);
+  ofDrawGridPlane(800, 20, false);
+  ofPopMatrix();
+
+  for (auto simpleHand : simpleHands) {
+    ofPoint handPos = simpleHand.handPos;
+    weapon.SetPosition(handPos);
+    weapon.DrawGun();
+
+    // ofSetColor(200, 0, 0);
+    // ofDrawBitmapString("Leap Connected? " + ofToString(leap.isConnected()),
+    //                    handPos.x, handPos.y);
+    // ofDrawBitmapString(ofToString(ofGetFrameRate()), handPos.x, handPos.y - 20);
+    // ofDrawBitmapString("(" + ofToString(handPos.x) + ", " +
+    //                        ofToString(handPos.y) + ", " +
+    //                        ofToString(handPos.z) + ")",
+    //                    handPos.x, handPos.y - 40);
+  }
+  weapon.DrawBullet();
+  enemy.SetPosition(ofVec3f(0, 0, 0));
+  enemy.Draw();
+  glPopAttrib();
+  // post.end();
+  cam.end();
+#ifdef USE_DIMENCO_OPENGL_INTERFACE
+  dimencoSetZBufState();
+#endif
+}
+
+void ofApp::keyPressed(int key) {
+  if (key == 'q') {
+    OF_EXIT_APP(0);
+  }
+  if (key == 'f' && simpleHands.size()) {
+    weapon.Fire(color);
+    printf("fire\n");
+  }
+  if (key == 'c') {
+    ChangeColor();
+    printf("%d\n", color);
+  }
+}
+
+void ofApp::exit() {
+  leap.close();
+}
+
+void ofApp::ChangeColor() {
+  color = Color((color + 1) % 3);
+}
