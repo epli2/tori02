@@ -95,15 +95,15 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxLeapMotion2\libs;..\..\..\addons\ofxLeapMotion2\libs\include;..\..\..\addons\ofxLeapMotion2\libs\lib;..\..\..\addons\ofxLeapMotion2\libs\lib\winvs;..\..\..\addons\ofxLeapMotion2\src;..\..\..\addons\ofxPostProcessing-hack-multisample\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxLeapMotion2\libs;..\..\..\addons\ofxLeapMotion2\libs\include;..\..\..\addons\ofxLeapMotion2\libs\lib;..\..\..\addons\ofxLeapMotion2\libs\lib\winvs;..\..\..\addons\ofxLeapMotion2\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies);assimp.lib;Leap.lib;Leapd.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxLeapMotion2\libs\lib\winvs</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies);assimp.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
@@ -114,7 +114,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxLeapMotion2\libs;..\..\..\addons\ofxLeapMotion2\libs\include;..\..\..\addons\ofxLeapMotion2\libs\lib;..\..\..\addons\ofxLeapMotion2\libs\lib\winvs;..\..\..\addons\ofxLeapMotion2\src;..\..\..\addons\ofxPostProcessing-hack-multisample\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxLeapMotion2\libs;..\..\..\addons\ofxLeapMotion2\libs\include;..\..\..\addons\ofxLeapMotion2\libs\lib;..\..\..\addons\ofxLeapMotion2\libs\lib\winvs;..\..\..\addons\ofxLeapMotion2\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -133,7 +133,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxLeapMotion2\libs;..\..\..\addons\ofxLeapMotion2\libs\include;..\..\..\addons\ofxLeapMotion2\libs\lib;..\..\..\addons\ofxLeapMotion2\libs\lib\winvs;..\..\..\addons\ofxLeapMotion2\src;..\..\..\addons\ofxPostProcessing-hack-multisample\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxLeapMotion2\libs;..\..\..\addons\ofxLeapMotion2\libs\include;..\..\..\addons\ofxLeapMotion2\libs\lib;..\..\..\addons\ofxLeapMotion2\libs\lib\winvs;..\..\..\addons\ofxLeapMotion2\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -155,7 +155,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxLeapMotion2\libs;..\..\..\addons\ofxLeapMotion2\libs\include;..\..\..\addons\ofxLeapMotion2\libs\lib;..\..\..\addons\ofxLeapMotion2\libs\lib\winvs;..\..\..\addons\ofxLeapMotion2\src;..\..\..\addons\ofxPostProcessing-hack-multisample\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxLeapMotion2\libs;..\..\..\addons\ofxLeapMotion2\libs\include;..\..\..\addons\ofxLeapMotion2\libs\lib;..\..\..\addons\ofxLeapMotion2\libs\lib\winvs;..\..\..\addons\ofxLeapMotion2\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -171,10 +171,17 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Bullet.cpp" />
-    <ClCompile Include="src\Enemy.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
+    <ClCompile Include="src\Bullet.cpp" />
+    <ClCompile Include="src\Enemy.cpp" />
+    <ClCompile Include="src\ofUI.cpp" />
+    <ClCompile Include="src\Particle.cpp" />
+    <ClCompile Include="src\Weapon.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxButton.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp" />
@@ -183,54 +190,18 @@
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxSlider.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp" />
     <ClCompile Include="..\..\..\addons\ofxLeapMotion2\src\ofxLeapMotion2.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\BleachBypassPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\BloomPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\ContrastPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\ConvolutionPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\DofAltPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\DofPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\EdgePass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\FakeSSSPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\FxaaPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\GodRaysPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\HorizontalTiltShifPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\KaleidoscopePass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\LimbDarkeningPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\LUTPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\NoiseWarpPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\PixelatePass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\PostProcessing.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\RenderPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\RGBShiftPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\RimHighlightingPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\SSAOPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\ToonPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\VerticalTiltShifPass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\ZoomBlurPass.cpp" />
-    <ClCompile Include="src\ofUI.cpp" />
-    <ClCompile Include="src\Particle.cpp" />
-    <ClCompile Include="src\Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Bullet.h" />
     <ClInclude Include="src\Common.h" />
-    <ClInclude Include="src\Enemy.h" />
-    <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\dimenco.h" />
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h" />
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h" />
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxGui.h" />
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.h" />
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxLabel.h" />
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxPanel.h" />
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSlider.h" />
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.h" />
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxToggle.h" />
+    <ClInclude Include="src\Enemy.h" />
+    <ClInclude Include="src\EnemyCloud.h" />
+    <ClInclude Include="src\ofUI.h" />
+    <ClInclude Include="src\Particle.h" />
+    <ClInclude Include="src\Weapon.h" />
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.h" />
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.h" />
@@ -272,37 +243,18 @@
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector2.h" />
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector3.h" />
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\version.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxGui.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxLabel.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxPanel.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxToggle.h" />
     <ClInclude Include="..\..\..\addons\ofxLeapMotion2\src\ofxLeapMotion2.h" />
     <ClInclude Include="..\..\..\addons\ofxLeapMotion2\libs\include\Leap.h" />
     <ClInclude Include="..\..\..\addons\ofxLeapMotion2\libs\include\LeapMath.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\BleachBypassPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\BloomPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\ContrastPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\ConvolutionPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\DofAltPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\DofPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\EdgePass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\FakeSSSPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\FxaaPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\GodRaysPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\HorizontalTiltShifPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\KaleidoscopePass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\LimbDarkeningPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\LUTPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\NoiseWarpPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\ofxPostProcessing.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\PixelatePass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\PostProcessing.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\RenderPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\RGBShiftPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\RimHighlightingPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\SSAOPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\ToonPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\VerticalTiltShifPass.h" />
-    <ClInclude Include="..\..\..\addons\ofxPostProcessing-hack-multisample\src\ZoomBlurPass.h" />
-    <ClInclude Include="src\ofUI.h" />
-    <ClInclude Include="src\Particle.h" />
-    <ClInclude Include="src\Weapon.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

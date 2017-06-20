@@ -1,4 +1,3 @@
-ofxGui
 ofxAssimpModelLoader
+ofxGui
 ofxLeapMotion2
-ofxPostProcessing-hack-multisample

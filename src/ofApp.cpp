@@ -10,12 +10,6 @@ void ofApp::setup() {
   ofSetVerticalSync(true);
   // ofSetLogLevel(OF_LOG_VERBOSE);
 
-  // post.init(ofGetWidth(), ofGetHeight());
-  // post.createPass<FxaaPass>()->setEnabled(true);
-  // post.createPass<BloomPass>()->setEnabled(true);
-  // post.createPass<DofPass>()->setEnabled(false);
-  // post.createPass<SSAOPass>()->setEnabled(true);
-
   leap.open();
   leap.setReceiveBackgroundFrames(true);
   cam.setOrientation(ofPoint(-20, 0, 0));
@@ -46,7 +40,6 @@ void ofApp::draw() {
 #ifdef USE_DIMENCO_OPENGL_INTERFACE
   dimencoSetBackgroundState();
 #endif
-  // post.begin(cam);
   cam.begin(ofRectangle(0, 0, ofGetWidth(), ofGetHeight()));
   ofSetColor(200, 0, 0);
   ofDrawBitmapString("Leap Connected? " + ofToString(leap.isConnected()),
@@ -79,7 +72,6 @@ void ofApp::draw() {
   enemy.SetPosition(ofVec3f(0, 0, 0));
   enemy.Draw();
   glPopAttrib();
-  // post.end();
   cam.end();
 #ifdef USE_DIMENCO_OPENGL_INTERFACE
   dimencoSetZBufState();
