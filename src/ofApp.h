@@ -7,14 +7,12 @@
   #include "dimenco.h"
 #endif
 #include "ofxLeapMotion2.h"
-// #include "ofxPostProcessing.h"
 #include "Weapon.h"
 #include "Enemy.h"
 #include "Common.h"
 
 class ofApp : public ofBaseApp {
 private:
-  // ofxPostProcessing post;
   ofxLeapMotion leap;
   ofLight light;
   vector<ofxLeapMotionSimpleHand> simpleHands;
