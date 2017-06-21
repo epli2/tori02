@@ -56,7 +56,7 @@ void ofApp::draw() {
   for (auto simpleHand : simpleHands) {
     ofPoint handPos = simpleHand.handPos;
     weapon.SetPosition(handPos);
-		weapon.SetColor(color);
+    weapon.SetColor(color);
     weapon.DrawGun();
 
     // ofSetColor(200, 0, 0);
@@ -83,7 +83,7 @@ void ofApp::keyPressed(int key) {
     OF_EXIT_APP(0);
   }
   if (key == 'f' && simpleHands.size()) {
-		weapon.SetColor(color);
+    weapon.SetColor(color);
     weapon.Fire();
     printf("fire\n");
   }
