@@ -171,6 +171,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\EnemyCloud.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Bullet.cpp" />
@@ -193,6 +194,7 @@
     <ClCompile Include="..\..\..\addons\ofxLeapMotion2\src\ofxLeapMotion2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\EnemyCloud.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Bullet.h" />
     <ClInclude Include="src\Common.h" />

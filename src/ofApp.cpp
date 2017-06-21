@@ -69,8 +69,7 @@ void ofApp::draw() {
     //                    handPos.x, handPos.y - 40);
   }
   weapon.DrawBullet();
-  enemy.SetPosition(ofVec3f(0, 0, 0));
-  enemy.Draw();
+  enemycloud.Draw();
   glPopAttrib();
   cam.end();
 #ifdef USE_DIMENCO_OPENGL_INTERFACE
