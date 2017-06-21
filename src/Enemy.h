@@ -13,6 +13,7 @@ private:
   const std::string modelpath_light_ = "models/robot_light.obj";
   ofxAssimpModelLoader body_;
   ofxAssimpModelLoader light_;
+  const std::string shaderpath_ = "shader/shader_sin.frag";
   ofShader shader;
   static const int NUM = 20;
   float freq[NUM];

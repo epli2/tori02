@@ -58,15 +58,6 @@ void ofApp::draw() {
     weapon.SetPosition(handPos);
     weapon.SetColor(color);
     weapon.DrawGun();
-
-    // ofSetColor(200, 0, 0);
-    // ofDrawBitmapString("Leap Connected? " + ofToString(leap.isConnected()),
-    //                    handPos.x, handPos.y);
-    // ofDrawBitmapString(ofToString(ofGetFrameRate()), handPos.x, handPos.y - 20);
-    // ofDrawBitmapString("(" + ofToString(handPos.x) + ", " +
-    //                        ofToString(handPos.y) + ", " +
-    //                        ofToString(handPos.z) + ")",
-    //                    handPos.x, handPos.y - 40);
   }
   weapon.DrawBullet();
   enemycloud.Draw();

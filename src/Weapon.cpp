@@ -64,6 +64,8 @@ void Weapon::DrawBullet() {
   }
 }
 
-void Weapon::Fire() { bullets.push_back(Bullet(position_ + ofVec3f(0, 190, -130), 100000, color_)); }
+void Weapon::Fire() {
+  bullets.push_back(Bullet(position_ + ofVec3f(0, 190, -130), 100000, color_));
+}
 
 Weapon::~Weapon() {}
