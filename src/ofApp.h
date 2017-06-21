@@ -8,7 +8,7 @@
 #endif
 #include "ofxLeapMotion2.h"
 #include "Weapon.h"
-#include "Enemy.h"
+#include "EnemyCloud.h"
 #include "Common.h"
 
 class ofApp : public ofBaseApp {
@@ -20,7 +20,7 @@ private:
   vector<int> fingersFound;
   ofEasyCam cam;
   Color color = GREEN;
-  Enemy enemy;
+  EnemyCloud enemycloud;
 
   void ChangeColor();
 
