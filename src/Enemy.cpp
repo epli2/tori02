@@ -6,7 +6,7 @@ Enemy::Enemy(ofVec3f _position, float _hp, float _attack, Color _color)
     : position_(_position), hp_(_hp), attack_(_attack), color_(_color) {
   body_.loadModel(modelpath_body_);
   light_.loadModel(modelpath_light_);
-  body_.setScale(0.5, 0.5, 0.5);  
+  body_.setScale(0.5, 0.5, 0.5);
   light_.setScale(0.5, 0.5, 0.5);
   body_.setRotation(0, 180, 1, 0, 0);
   light_.setRotation(0, 180, 1, 0, 0);

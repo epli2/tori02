@@ -27,7 +27,7 @@ void Particle::UpdateForce() { force_ -= velocity_ * friction_; }
 void Particle::UpdatePos(ofVec3f _velocity) {
   if (!bFixed_) {
     velocity_ += force_;
-    position_ += _velocity +  velocity_;
+    position_ += _velocity + velocity_;
   }
 }
 
