@@ -21,12 +21,24 @@ void Enemy::SetPosition(ofVec3f _position) {
   position_ = _position;
 }
 void Enemy::Draw() {
+  ofColor rgbcolor;
+  switch (color_) {
+  case RED:
+    rgbcolor = ofColor(232, 60, 55);
+    break;
+  case GREEN:
+    rgbcolor = ofColor(72, 232, 124);
+    break;
+  case BLUE:
+    rgbcolor = ofColor(53, 61, 255);
+    break;
+  }
   body_.setPosition(position_.x, position_.y, position_.z);
   light_.setPosition(position_.x, position_.y, position_.z);
   shader.begin();
   shader.setUniform1f("u_time", ofGetElapsedTimef());
   shader.setUniform2f("u_resolution", ofGetWidth(), ofGetHeight());
-  shader.setUniform3f("u_color", 0.2, 0.5, 1.0);
+  shader.setUniform3f("u_color", rgbcolor.r / 255.0, rgbcolor.g / 255.0, rgbcolor.b / 255.0);
   shader.setUniform1fv("freq", freq, NUM);
   light_.drawFaces();
   shader.end();
