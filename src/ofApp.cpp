@@ -16,6 +16,7 @@ void ofApp::setup() {
   light.setPosition(1000, 1000, 2000);
 
   collision_bullets_and_enemys.Init(weapon.GetObjectsPtr(), enemycloud.GetObjectsPtr());
+  gameui.setup();
 
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_NORMALIZE);
@@ -67,6 +68,8 @@ void ofApp::draw() {
   enemycloud.Draw();
   glPopAttrib();
   cam.end();
+  gameui.setColor(color);
+  gameui.draw();
 #ifdef USE_DIMENCO_OPENGL_INTERFACE
   dimencoSetZBufState();
 #endif

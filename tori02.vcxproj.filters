@@ -19,9 +19,6 @@
     <ClCompile Include="src\ofApp.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ofUI.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Particle.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -71,6 +68,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Collision.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameUI.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -138,9 +138,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ofUI.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Particle.h">
@@ -315,6 +312,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Collision.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameUI.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

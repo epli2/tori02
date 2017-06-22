@@ -173,11 +173,11 @@
   <ItemGroup>
     <ClCompile Include="src\Collision.cpp" />
     <ClCompile Include="src\EnemyCloud.cpp" />
+    <ClCompile Include="src\GameUI.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
-    <ClCompile Include="src\ofUI.cpp" />
     <ClCompile Include="src\Particle.cpp" />
     <ClCompile Include="src\Weapon.cpp" />
     <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp" />
@@ -198,12 +198,12 @@
     <ClInclude Include="src\ColliderObject.h" />
     <ClInclude Include="src\Collision.h" />
     <ClInclude Include="src\EnemyCloud.h" />
+    <ClInclude Include="src\GameUI.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Bullet.h" />
     <ClInclude Include="src\Common.h" />
     <ClInclude Include="src\dimenco.h" />
     <ClInclude Include="src\Enemy.h" />
-    <ClInclude Include="src\ofUI.h" />
     <ClInclude Include="src\Particle.h" />
     <ClInclude Include="src\Weapon.h" />
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
