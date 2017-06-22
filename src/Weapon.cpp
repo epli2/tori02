@@ -16,6 +16,16 @@ Weapon::Weapon() : power_(5) {
 }
 
 void Weapon::Update() {
+  auto itr = bullets.begin();
+  while (itr != bullets.end()) {
+    if (!(*itr).isalive_) {
+      itr = bullets.erase(itr);
+      printf("kill enemy\n");
+    }
+    else {
+      itr++;
+    }
+  }
   for (auto& bullet : bullets) {
     if (bullet.IsDie()) {
       bullets.pop_back();
@@ -66,6 +76,14 @@ void Weapon::DrawBullet() {
 
 void Weapon::Fire() {
   bullets.push_back(Bullet(position_ + ofVec3f(0, 190, -130), 100000, color_));
+}
+
+std::vector<ColliderObject*> Weapon::GetObjectsPtr() {
+  std::vector<ColliderObject*> bulletrefs;
+  for (auto&& bullet : bullets) {
+    bulletrefs.push_back(&bullet);
+  }
+  return bulletrefs;
 }
 
 Weapon::~Weapon() {}

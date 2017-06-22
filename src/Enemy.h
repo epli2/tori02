@@ -1,19 +1,18 @@
 #pragma once
 
 #include "Common.h"
+#include "ColliderObject.h"
 #include "ofxAssimpModelLoader.h"
 
-class Enemy {
+class Enemy : public ColliderObject {
 private:
-  ofVec3f position_;
   float hp_;
-  const float attack_;
-  const Color color_;
-  const std::string modelpath_body_ = "models/robot_body.obj";
-  const std::string modelpath_light_ = "models/robot_light.obj";
+  float attack_;
+  std::string modelpath_body_ = "models/robot_body.obj";
+  std::string modelpath_light_ = "models/robot_light.obj";
   ofxAssimpModelLoader body_;
   ofxAssimpModelLoader light_;
-  const std::string shaderpath_ = "shader/shader_sin.frag";
+  std::string shaderpath_ = "shader/shader_sin.frag";
   ofShader shader;
   static const int NUM = 20;
   float freq[NUM];

@@ -3,7 +3,7 @@
 Enemy::Enemy() : Enemy(ofVec3f(0, 0, 0), 100, 50, RED) {}
 
 Enemy::Enemy(ofVec3f _position, float _hp, float _attack, Color _color)
-    : position_(_position), hp_(_hp), attack_(_attack), color_(_color) {
+    : ColliderObject(_position, true, _color), hp_(_hp), attack_(_attack) {
   body_.loadModel(modelpath_body_);
   light_.loadModel(modelpath_light_);
   body_.setScale(0.5, 0.5, 0.5);

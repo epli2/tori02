@@ -1,11 +1,10 @@
 #include "Bullet.h"
 
 Bullet::Bullet(ofVec3f _position, float _radius, Color _color) :
+  ColliderObject(_position, true, _color),
   lifetime_(600),
   lifecount_(0),
-  position_(_position),
-  radius_(_radius),
-  color_(_color)
+  radius_(_radius)
 {
   acceleration_.set(0, 0, 1.2);
   velocity_.set(0, 0, -50);

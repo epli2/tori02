@@ -28,5 +28,6 @@ public:
   void DrawGun();
   void DrawBullet();
   void Fire();
+  std::vector<ColliderObject*> GetObjectsPtr();
   ~Weapon();
 };

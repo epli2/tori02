@@ -15,6 +15,8 @@ void ofApp::setup() {
   cam.setOrientation(ofPoint(-20, 0, 0));
   light.setPosition(1000, 1000, 2000);
 
+  collision_bullets_and_enemys.Init(weapon.GetObjectsPtr(), enemycloud.GetObjectsPtr());
+
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_NORMALIZE);
 }
@@ -29,6 +31,8 @@ void ofApp::update() {
     leap.setMappingZ(-150, 150, -200, 200);
   }
   leap.markFrameAsOld();
+  collision_bullets_and_enemys.Update(weapon.GetObjectsPtr(), enemycloud.GetObjectsPtr());
+  enemycloud.Update();
   weapon.Update();
 }
 

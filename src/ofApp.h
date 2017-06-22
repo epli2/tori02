@@ -10,6 +10,7 @@
 #include "Weapon.h"
 #include "EnemyCloud.h"
 #include "Common.h"
+#include "Collision.h"
 
 class ofApp : public ofBaseApp {
 private:
@@ -21,6 +22,7 @@ private:
   ofEasyCam cam;
   Color color = GREEN;
   EnemyCloud enemycloud;
+  Collision collision_bullets_and_enemys;
 
   void ChangeColor();
 

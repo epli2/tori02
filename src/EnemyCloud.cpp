@@ -16,13 +16,29 @@ EnemyCloud::EnemyCloud(int _number) : number_(_number) {
 }
 
 void EnemyCloud::Update() {
-
+  auto itr = enemys_.begin();
+  while (itr != enemys_.end()) {
+    if (!(*itr).isalive_) {
+      itr = enemys_.erase(itr);
+      printf("kill enemy\n");
+    } else {
+      itr++;
+    }
+  }
 }
 
 void EnemyCloud::Draw() {
-  for (auto enemy : enemys_) {
+  for (auto&& enemy : enemys_) {
     enemy.Draw();
   }
+}
+
+std::vector<ColliderObject*> EnemyCloud::GetObjectsPtr() {
+  std::vector<ColliderObject*> enemyrefs;
+  for (auto&& enemy : enemys_) {
+    enemyrefs.push_back(&enemy);
+  }
+  return enemyrefs;
 }
 
 EnemyCloud::~EnemyCloud() {}

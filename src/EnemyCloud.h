@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "Common.h"
 #include "Enemy.h"
+#include "ColliderObject.h"
 
 class EnemyCloud {
 private:
@@ -14,5 +15,6 @@ public:
   EnemyCloud(int _number);
   void Update();
   void Draw();
+  std::vector<ColliderObject*> GetObjectsPtr();
   ~EnemyCloud();
 };
