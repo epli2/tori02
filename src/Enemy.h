@@ -8,8 +8,14 @@ class Enemy : public ColliderObject {
 private:
   float hp_;
   float attack_;
-  std::string modelpath_body_ = "models/robot_body.obj";
-  std::string modelpath_light_ = "models/robot_light.obj";
+  EnemyType type_;
+  array<std::string, 5> modelpath_body_{ "models2/mob1_body.obj",
+                                         "models2/mob2_body.obj",
+                                         "models2/box.obj",
+                                         "models2/box2.obj",
+                                         "models2/box3.obj" };
+  array<std::string, 2> modelpath_light_{ "models2/mob1_light.obj",
+                                          "models2/mob2_light.obj" };
   ofxAssimpModelLoader body_;
   ofxAssimpModelLoader light_;
   std::string shaderpath_ = "shader/shader_sin.frag";
@@ -19,9 +25,10 @@ private:
 
 public:
   Enemy();
-  Enemy(ofVec3f _position, float _hp, float _attack, Color _color);
+  Enemy(ofVec3f _position, float _hp, float _attack, Color _color, EnemyType _type);
   void Update();
   void SetPosition(ofVec3f _position);
   void Draw();
+  bool isArmed();
   ~Enemy();
 };

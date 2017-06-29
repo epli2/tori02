@@ -11,7 +11,8 @@ EnemyCloud::EnemyCloud(int _number) : number_(_number) {
     float hp = ofRandom(100, 500);
     float attack = ofRandom(100, 300);
     Color color = Color(static_cast<int>(ofRandom(0, 3)));
-    enemys_.push_back(Enemy(pos, hp, attack, color));
+    EnemyType type = EnemyType(static_cast<int>(ofRandom(0, 5)));
+    enemys_.push_back(Enemy(pos, hp, attack, color, type));
   }
 }
 
