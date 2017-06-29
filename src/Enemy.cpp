@@ -3,7 +3,7 @@
 Enemy::Enemy() : Enemy(ofVec3f(0, 0, 0), 100, 50, RED, MOB1) {}
 
 Enemy::Enemy(ofVec3f _position, float _hp, float _attack, Color _color, EnemyType _type)
-    : ColliderObject(_position, true, _color), hp_(_hp), attack_(_attack), type_(_type) {
+    : ColliderObject(_position, true, _color, CIRCLE, 100), hp_(_hp), attack_(_attack), type_(_type) {
   body_.loadModel(modelpath_body_[type_]);
   body_.setScaleNormalization(false);
   if (IsArmed()) {

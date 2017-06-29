@@ -1,7 +1,7 @@
 #include "Bullet.h"
 
 Bullet::Bullet(ofVec3f _position, float _radius, Color _color, ofVec3f _velocity) :
-  ColliderObject(_position, true, _color),
+  ColliderObject(_position, true, _color, CIRCLE, 200),
   lifetime_(600),
   lifecount_(0),
   radius_(_radius)
