@@ -15,11 +15,14 @@ void ofApp::setup() {
   cam.setOrientation(ofPoint(-20, 0, 0));
   light.setPosition(1000, 1000, 2000);
 
+  backgroundshader.load("", "shader/shader_background.frag");
   collision_bullets_and_enemys.Init(weapon.GetObjectsPtr(), enemycloud.GetObjectsPtr());
   gameui.setup();
 
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_NORMALIZE);
+  glEnable(GL_LIGHTING);
+  light.enable();
 }
 
 void ofApp::update() {
@@ -38,10 +41,9 @@ void ofApp::update() {
 }
 
 void ofApp::draw() {
-  ofBackgroundGradient(ofColor(90, 90, 90), ofColor(30, 30, 30),
-                       OF_GRADIENT_BAR);
-  glPushAttrib(GL_ENABLE_BIT);
-  light.enable();
+  // ofBackgroundGradient(ofColor(90, 90, 90), ofColor(30, 30, 30),
+  //                      OF_GRADIENT_BAR);
+  // glPushAttrib(GL_ENABLE_BIT);
 #ifdef USE_DIMENCO_OPENGL_INTERFACE
   dimencoSetBackgroundState();
 #endif
@@ -52,11 +54,17 @@ void ofApp::draw() {
   ofDrawBitmapString(ofToString(ofGetFrameRate()), ofGetWidth() / 2 + 100,
                      -ofGetHeight() / 2);
 
-  ofPushMatrix();
-  ofRotate(90, 0, 0, 1);
-  ofSetColor(20);
-  ofDrawGridPlane(800, 20, false);
-  ofPopMatrix();
+  // ofPushMatrix();
+  // ofRotate(90, 0, 0, 1);
+  // ofSetColor(20);
+  // ofDrawGridPlane(800, 20, false);
+  // ofPopMatrix();
+
+  backgroundshader.begin();
+  backgroundshader.setUniform1f("time", ofGetElapsedTimef());
+  backgroundshader.setUniform2f("resolution", ofGetWidth(), ofGetHeight());
+  ofDrawPlane(0, 0, -5000, ofGetWidth() * 100, ofGetHeight() * 100);
+  backgroundshader.end();
 
   for (auto simpleHand : simpleHands) {
     ofPoint handPos = simpleHand.handPos;

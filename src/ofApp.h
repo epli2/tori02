@@ -25,6 +25,7 @@ private:
   EnemyCloud enemycloud;
   Collision collision_bullets_and_enemys;
   GameUI gameui;
+  ofShader backgroundshader;
 
   void ChangeColor();
 
