@@ -1,33 +1,31 @@
 #pragma once
 
-//#include "ofApp.h"
 #include "ofMain.h"
-#include "ofGraphics.h"
-#include "ofxGui.h"
 #include "Common.h"
+// #include "ofxGui.h"
 
-class GameUI{
+
+class GameUI {
 private:
-	int sp;
-	Color color_;
-	ofColor ccolor;
+  int sp_;
+  Color color_;
+  ofColor ccolor_;
+  ofTrueTypeFont verdana;
 
 public:
-	
-	GameUI();
-	~GameUI();
+  GameUI();
+  ~GameUI();
 
-	void setup();
-	void update();
-	void draw();
-	void setColor(Color _color);
+  void Setup();
+  void Update();
+  void Draw();
+  void SetColor(Color _color);
 
-	//gui
-	/*
-	ofxPanel gui1;
-	ofxIntSlider hpbar;
-	ofxVec2Slider position;
-	ofxColorSlider barcolor;
-	*/
-	ofTrueTypeFont verdana;
+  // gui
+  /*
+  ofxPanel gui1;
+  ofxIntSlider hpbar;
+  ofxVec2Slider position;
+  ofxColorSlider barcolor;
+  */
 };
