@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Bullet.h"
 #include "Common.h"
 #include "ColliderObject.h"
 #include "ofxAssimpModelLoader.h"
@@ -21,7 +22,8 @@ private:
   std::string shaderpath_ = "shader/shader_sin.frag";
   ofShader shader;
   static const int NUM = 20;
-  float freq[NUM];  
+  float freq[NUM];
+  std::vector<Bullet> bullets_;
 
 public:
   Enemy();
@@ -30,5 +32,7 @@ public:
   void SetPosition(ofVec3f _position);
   void Draw();
   bool IsArmed();
+  void DrawBullet();
+  void Fire();
   ~Enemy();
 };

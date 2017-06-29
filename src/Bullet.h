@@ -16,7 +16,7 @@ private:
   std::vector<Particle> particles;
 
 public:
-  Bullet(ofVec3f _position, float _radius, Color _color);
+  Bullet(ofVec3f _position, float _radius, Color _color, ofVec3f _velocity);
   void Update();
   void Draw();
   bool IsDie() const;

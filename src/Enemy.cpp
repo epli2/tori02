@@ -27,7 +27,18 @@ Enemy::Enemy(ofVec3f _position, float _hp, float _attack, Color _color, EnemyTyp
   shader.load("", shaderpath_);
 }
 
-void Enemy::Update() {}
+void Enemy::Update() {
+  for (auto& bullet : bullets_) {
+    if (bullet.IsDie()) {
+      bullets_.pop_back();
+      printf("die\n");
+    }
+    bullet.Update();
+  }
+  if (IsArmed() && (static_cast<int>(ofRandom(0, 100)) == 50)) {
+    Fire();
+  }
+}
 
 void Enemy::SetPosition(ofVec3f _position) {
   position_ = _position;
@@ -62,10 +73,21 @@ void Enemy::Draw() {
     body_.drawFaces();
     shader.end();
   }
+  DrawBullet();
 }
 
 bool Enemy::IsArmed() {
   return (type_ == MOB1 || type_ == MOB2);
+}
+
+void Enemy::DrawBullet() {
+  for (auto&& bullet : bullets_) {
+    bullet.Draw();
+  }
+}
+
+void Enemy::Fire() {
+  bullets_.push_back(Bullet(position_, 100000, color_, ofVec3f(0, 0, 50)));
 }
 
 Enemy::~Enemy() {}

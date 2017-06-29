@@ -26,6 +26,9 @@ void EnemyCloud::Update() {
       itr++;
     }
   }
+  for (auto&& enemy : enemys_) {
+    enemy.Update();
+  }
 }
 
 void EnemyCloud::Draw() {
