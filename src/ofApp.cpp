@@ -12,11 +12,13 @@ void ofApp::setup() {
 
   leap.open();
   leap.setReceiveBackgroundFrames(true);
-  cam.setOrientation(ofPoint(-20, 0, 0));
+  cam.setOrientation(ofPoint(0, 0, 0));
   light.setPosition(1000, 1000, 2000);
 
   backgroundshader.load("", "shader/shader_background.frag");
   collision_bullets_and_enemys.Init(weapon.GetObjectsPtr(), enemycloud.GetObjectsPtr());
+  pv.push_back(&player);
+  collision_bullets_and_player.Init(enemycloud.GetAllBulletsPtr(), pv);
   gameui.setup();
 
   glEnable(GL_DEPTH_TEST);
@@ -36,6 +38,8 @@ void ofApp::update() {
   }
   leap.markFrameAsOld();
   collision_bullets_and_enemys.Update(weapon.GetObjectsPtr(), enemycloud.GetObjectsPtr());
+  player.SetColor(color);
+  collision_bullets_and_player.Update(enemycloud.GetAllBulletsPtr(), pv);
   enemycloud.Update();
   weapon.Update();
 }

@@ -28,6 +28,16 @@ Enemy::Enemy(ofVec3f _position, float _hp, float _attack, Color _color, EnemyTyp
 }
 
 void Enemy::Update() {
+  auto itr = bullets_.begin();
+  while (itr != bullets_.end()) {
+    if (!(*itr).isalive_) {
+      itr = bullets_.erase(itr);
+      printf("hit player\n");
+    }
+    else {
+      itr++;
+    }
+  }
   for (auto& bullet : bullets_) {
     if (bullet.IsDie()) {
       bullets_.pop_back();
@@ -88,6 +98,14 @@ void Enemy::DrawBullet() {
 
 void Enemy::Fire() {
   bullets_.push_back(Bullet(position_, 100000, color_, ofVec3f(0, 0, 50)));
+}
+
+std::vector<ColliderObject*> Enemy::GetObjectsPtr() {
+  std::vector<ColliderObject*> enemybulletrefs;
+  for (auto&& bullet : bullets_) {
+    enemybulletrefs.push_back(&bullet);
+  }
+  return enemybulletrefs;
 }
 
 Enemy::~Enemy() {}

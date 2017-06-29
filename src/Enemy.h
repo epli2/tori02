@@ -34,5 +34,6 @@ public:
   bool IsArmed();
   void DrawBullet();
   void Fire();
+  std::vector<ColliderObject*> Enemy::GetObjectsPtr();
   ~Enemy();
 };

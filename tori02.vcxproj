@@ -205,6 +205,7 @@
     <ClInclude Include="src\dimenco.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Particle.h" />
+    <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Weapon.h" />
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.h" />

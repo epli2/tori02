@@ -16,5 +16,6 @@ public:
   void Update();
   void Draw();
   std::vector<ColliderObject*> GetObjectsPtr();
+  std::vector<ColliderObject*> GetAllBulletsPtr();
   ~EnemyCloud();
 };

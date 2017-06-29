@@ -25,5 +25,6 @@ public:
   Collider GetCollider() { return collider_; };
   float GetRadius() { return radius_; };
   ofVec2f GetRect() { return ofVec2f(width_, height_); };
+  void SetColor(Color _color) { color_ = _color; };
   bool isalive_;
 };

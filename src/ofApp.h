@@ -12,6 +12,7 @@
 #include "Common.h"
 #include "Collision.h"
 #include "GameUI.h"
+#include "Player.h"
 
 class ofApp : public ofBaseApp {
 private:
@@ -24,8 +25,11 @@ private:
   Color color = GREEN;
   EnemyCloud enemycloud;
   Collision collision_bullets_and_enemys;
+  Collision collision_bullets_and_player;
   GameUI gameui;
   ofShader backgroundshader;
+  Player player;
+  std::vector<ColliderObject*> pv;
 
   void ChangeColor();
 

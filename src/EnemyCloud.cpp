@@ -45,4 +45,14 @@ std::vector<ColliderObject*> EnemyCloud::GetObjectsPtr() {
   return enemyrefs;
 }
 
+std::vector<ColliderObject*> EnemyCloud::GetAllBulletsPtr() {
+  std::vector<ColliderObject*> bulletrefs;
+  for (auto&& enemy : enemys_) {
+    for (auto&& bullet : enemy.GetObjectsPtr()) {
+      bulletrefs.push_back(bullet);
+    }
+  }
+  return bulletrefs;
+}
+
 EnemyCloud::~EnemyCloud() {}
