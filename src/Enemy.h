@@ -21,7 +21,7 @@ private:
   std::string shaderpath_ = "shader/shader_sin.frag";
   ofShader shader;
   static const int NUM = 20;
-  float freq[NUM];
+  float freq[NUM];  
 
 public:
   Enemy();
@@ -29,6 +29,6 @@ public:
   void Update();
   void SetPosition(ofVec3f _position);
   void Draw();
-  bool isArmed();
+  bool IsArmed();
   ~Enemy();
 };

@@ -6,7 +6,7 @@ Enemy::Enemy(ofVec3f _position, float _hp, float _attack, Color _color, EnemyTyp
     : ColliderObject(_position, true, _color), hp_(_hp), attack_(_attack), type_(_type) {
   body_.loadModel(modelpath_body_[type_]);
   body_.setScaleNormalization(false);
-  if (isArmed()) {
+  if (IsArmed()) {
     body_.setScale(100, 100, 100);
   }
   else {
@@ -15,7 +15,7 @@ Enemy::Enemy(ofVec3f _position, float _hp, float _attack, Color _color, EnemyTyp
   body_.setRotation(0, 180, 0, 0, 1);
   body_.enableMaterials();
   body_.disableColors();
-  if (isArmed()) {
+  if (IsArmed()) {
     light_.loadModel(modelpath_light_[type_]);
     light_.setScaleNormalization(false);
     light_.setScale(100, 100, 100);
@@ -51,7 +51,7 @@ void Enemy::Draw() {
   shader.setUniform2f("u_resolution", ofGetWidth(), ofGetHeight());
   shader.setUniform3f("u_color", rgbcolor.r / 255.0, rgbcolor.g / 255.0, rgbcolor.b / 255.0);
   shader.setUniform1fv("freq", freq, NUM);
-  if (isArmed()) {
+  if (IsArmed()) {
     light_.setPosition(position_.x, position_.y, position_.z);
     light_.drawFaces();
     shader.end();
@@ -64,7 +64,7 @@ void Enemy::Draw() {
   }
 }
 
-bool Enemy::isArmed() {
+bool Enemy::IsArmed() {
   return (type_ == MOB1 || type_ == MOB2);
 }
 
