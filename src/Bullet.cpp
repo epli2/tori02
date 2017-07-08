@@ -6,7 +6,7 @@ Bullet::Bullet(ofVec3f _position, float _radius, Color _color, ofVec3f _velocity
   lifecount_(0),
   radius_(_radius)
 {
-  acceleration_.set(0, 0, 1.2);
+  acceleration_.set(0, 0, 1.1);
   velocity_.set(_velocity);
   mesh_.setMode(OF_PRIMITIVE_POINTS);
   for (int i = 0; i < 1000; i++) {
@@ -17,7 +17,7 @@ Bullet::Bullet(ofVec3f _position, float _radius, Color _color, ofVec3f _velocity
 }
 
 void Bullet::Update() {
-  // velocity_ *= acceleration_;
+  velocity_ *= acceleration_;
   position_ += velocity_;
   lifecount_ += 1;
   for (auto& particle : particles) {

@@ -12,14 +12,22 @@ Enemy::Enemy(ofVec3f _position, float _hp, float _attack, Color _color, EnemyTyp
   else {
     body_.setScale(50, 50, 50);
   }
-  body_.setRotation(0, 180, 0, 0, 1);
+  body_.setRotation(2, 180, 0, 0, 1);
   body_.enableMaterials();
   body_.disableColors();
   if (IsArmed()) {
     light_.loadModel(modelpath_light_[type_]);
     light_.setScaleNormalization(false);
     light_.setScale(100, 100, 100);
-    light_.setRotation(0, 180, 0, 0, 1);
+    light_.setRotation(2, 180, 0, 0, 1);
+  }
+  if (position_.x > 1000) {
+    body_.setRotation(1, 45, 0, 1, 0);
+    light_.setRotation(1, 45, 0, 1, 0);
+  }
+  else if (position_.x < -1000) {
+    body_.setRotation(1, -45, 0, 1, 0);
+    light_.setRotation(1, -45, 0, 1, 0);
   }
   for (int i = 0; i < NUM; i++) {
     freq[i] = ofRandom(4.0, 10.0);

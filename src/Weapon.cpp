@@ -75,7 +75,7 @@ void Weapon::DrawBullet() {
 }
 
 void Weapon::Fire() {
-  bullets.push_back(Bullet(position_ + ofVec3f(0, 190, -130), 100000, color_, ofVec3f(0, 0, -50)));
+  bullets.push_back(Bullet(position_ + ofVec3f(0, 19 * ofGetHeight() / 90, -13 * ofGetWidth() / 160), 100000, color_, ofVec3f(0, 0, -50)));
 }
 
 std::vector<ColliderObject*> Weapon::GetObjectsPtr() {

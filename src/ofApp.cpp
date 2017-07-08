@@ -51,6 +51,13 @@ void ofApp::draw() {
 #ifdef USE_DIMENCO_OPENGL_INTERFACE
   dimencoSetBackgroundState();
 #endif
+  backgroundshader.begin();
+  backgroundshader.setUniform1f("time", ofGetElapsedTimef());
+  backgroundshader.setUniform2f("resolution", ofGetWidth(), ofGetHeight());
+  ofDrawPlane(0, 0, 0, ofGetWidth() * 100, ofGetHeight() * 100);
+  backgroundshader.end();
+  glClear(GL_DEPTH_BUFFER_BIT);
+
   cam.begin(ofRectangle(0, 0, ofGetWidth(), ofGetHeight()));
   ofSetColor(200, 0, 0);
   ofDrawBitmapString("Leap Connected? " + ofToString(leap.isConnected()),
@@ -64,12 +71,6 @@ void ofApp::draw() {
   // ofDrawGridPlane(800, 20, false);
   // ofPopMatrix();
 
-  backgroundshader.begin();
-  backgroundshader.setUniform1f("time", ofGetElapsedTimef());
-  backgroundshader.setUniform2f("resolution", ofGetWidth(), ofGetHeight());
-  ofDrawPlane(0, 0, -5000, ofGetWidth() * 100, ofGetHeight() * 100);
-  backgroundshader.end();
-
   for (auto simpleHand : simpleHands) {
     ofPoint handPos = simpleHand.handPos;
     weapon.SetPosition(handPos);
@@ -78,7 +79,7 @@ void ofApp::draw() {
   }
   weapon.DrawBullet();
   enemycloud.Draw();
-  glPopAttrib();
+  glPopAttrib();  
   cam.end();
   gameui.setColor(color);
   gameui.draw();

@@ -1,12 +1,12 @@
 #include "EnemyCloud.h"
 
-EnemyCloud::EnemyCloud() : EnemyCloud(10) {}
+EnemyCloud::EnemyCloud() : EnemyCloud(100) {}
 
 EnemyCloud::EnemyCloud(int _number) : number_(_number) {
-  int posrange = number_ * 10;
+  int posrange = number_;
   for (int i = 0; i < number_; i++) {
-    ofVec3f pos = ofVec3f(ofRandom(-posrange * 5, posrange * 5),
-                          ofRandom(-posrange * 5, posrange * 5),
+    ofVec3f pos = ofVec3f(ofRandom(-posrange * 40, posrange * 40),
+                          ofRandom(-posrange * 20, posrange * 20),
                           ofRandom(-posrange * 100, -posrange * 10));
     float hp = ofRandom(100, 500);
     float attack = ofRandom(100, 300);

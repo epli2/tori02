@@ -51,7 +51,7 @@ void GameUI::draw() {
 	char sc[255];
 	sprintf(sc, "SCORE : %d", sp);
 	ofSetColor(30, 200, 200);
-	verdana.drawString(sc, 750, ofGetHeight() / 20);
+	verdana.drawString(sc, ofGetWidth() - (ofGetWidth() / 5), ofGetHeight() / 20);
 
 	//gui1.draw();
 }
