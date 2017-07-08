@@ -171,6 +171,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\ButtleScene.cpp" />
     <ClCompile Include="src\Collision.cpp" />
     <ClCompile Include="src\EnemyCloud.cpp" />
     <ClCompile Include="src\GameUI.cpp" />
@@ -195,6 +196,7 @@
     <ClCompile Include="..\..\..\addons\ofxLeapMotion2\src\ofxLeapMotion2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ButtleScene.h" />
     <ClInclude Include="src\ColliderObject.h" />
     <ClInclude Include="src\Collision.h" />
     <ClInclude Include="src\EnemyCloud.h" />
