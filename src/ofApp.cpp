@@ -19,7 +19,7 @@ void ofApp::setup() {
   collision_bullets_and_enemys.Init(weapon.GetObjectsPtr(), enemycloud.GetObjectsPtr());
   pv.push_back(&player);
   collision_bullets_and_player.Init(enemycloud.GetAllBulletsPtr(), pv);
-  gameui.setup();
+  gameui.Setup();
 
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_NORMALIZE);
@@ -81,8 +81,8 @@ void ofApp::draw() {
   enemycloud.Draw();
   glPopAttrib();  
   cam.end();
-  gameui.setColor(color);
-  gameui.draw();
+  gameui.SetColor(color);
+  gameui.Draw();
 #ifdef USE_DIMENCO_OPENGL_INTERFACE
   dimencoSetZBufState();
 #endif
