@@ -180,6 +180,7 @@
     <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
     <ClCompile Include="src\Particle.cpp" />
+    <ClCompile Include="src\TitleScene.cpp" />
     <ClCompile Include="src\Weapon.cpp" />
     <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp" />
     <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp" />
@@ -208,6 +209,7 @@
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Particle.h" />
     <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\TitleScene.h" />
     <ClInclude Include="src\Weapon.h" />
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.h" />
