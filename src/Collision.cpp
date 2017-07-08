@@ -37,8 +37,8 @@ void Collision::Update(std::vector<ColliderObject*> _objcts1, std::vector<Collid
       if (IsCollide(obj1, obj2) && (obj1->GetColor() == obj2->GetColor())) {
         // printf("color = %d %d\n", obj1->GetColor(), obj2->GetColor());
         // printf("distance = %f\n", Distance(obj1->GetPosition(), obj2->GetPosition()));
-        obj1->isalive_ = false;
-        obj2->isalive_ = false;
+        obj1->Hit();
+        obj2->Hit();
       }
     }
   }

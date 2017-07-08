@@ -47,6 +47,10 @@ void Bullet::Draw() {
   ofCircle(position_, 4);
 }
 
+void Bullet::Hit() {
+  isalive_ = false;
+}
+
 bool Bullet::IsDie() const {
   return (lifetime_ - lifecount_ < 0);
 }

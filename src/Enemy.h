@@ -34,6 +34,8 @@ public:
   bool IsArmed();
   void DrawBullet();
   void Fire();
+  void Hit();
+  ofVec3f GetPosition();
   std::vector<ColliderObject*> Enemy::GetObjectsPtr();
   ~Enemy();
 };

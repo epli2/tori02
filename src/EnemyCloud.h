@@ -13,6 +13,7 @@ private:
 public:
   EnemyCloud();
   EnemyCloud(int _number);
+  void Init(int _number);
   void Update();
   void Draw();
   std::vector<ColliderObject*> GetObjectsPtr();

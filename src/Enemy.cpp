@@ -56,6 +56,9 @@ void Enemy::Update() {
   if (IsArmed() && (static_cast<int>(ofRandom(0, 100)) == 50)) {
     Fire();
   }
+  if (position_.z > 50) {
+    isalive_ = false;
+  }
 }
 
 void Enemy::SetPosition(ofVec3f _position) {
@@ -106,6 +109,14 @@ void Enemy::DrawBullet() {
 
 void Enemy::Fire() {
   bullets_.push_back(Bullet(position_, 100000, color_, ofVec3f(0, 0, 50)));
+}
+
+void Enemy::Hit() {
+  isalive_ = false;
+}
+
+ofVec3f Enemy::GetPosition() {
+  return position_;
 }
 
 std::vector<ColliderObject*> Enemy::GetObjectsPtr() {

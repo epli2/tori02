@@ -26,6 +26,7 @@ private:
   EnemyCloud enemycloud;
   Collision collision_bullets_and_enemys;
   Collision collision_bullets_and_player;
+  Collision collision_enemys_and_player;
   GameUI gameui;
   ofShader backgroundshader;
   Player player;

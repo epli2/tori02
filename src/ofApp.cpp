@@ -19,6 +19,7 @@ void ofApp::setup() {
   collision_bullets_and_enemys.Init(weapon.GetObjectsPtr(), enemycloud.GetObjectsPtr());
   pv.push_back(&player);
   collision_bullets_and_player.Init(enemycloud.GetAllBulletsPtr(), pv);
+  collision_enemys_and_player.Init(enemycloud.GetObjectsPtr(), pv);
   gameui.Setup();
 
   glEnable(GL_DEPTH_TEST);
@@ -40,6 +41,7 @@ void ofApp::update() {
   collision_bullets_and_enemys.Update(weapon.GetObjectsPtr(), enemycloud.GetObjectsPtr());
   player.SetColor(color);
   collision_bullets_and_player.Update(enemycloud.GetAllBulletsPtr(), pv);
+  collision_enemys_and_player.Update(enemycloud.GetObjectsPtr(), pv);
   enemycloud.Update();
   weapon.Update();
 }

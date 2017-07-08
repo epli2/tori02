@@ -10,4 +10,5 @@ public:
     : Player(ofVec3f(-ofGetWidth() / 2, ofGetHeight() / 2, 0), GREEN) {};
   Player(ofVec3f _position, Color _color)
     : ColliderObject(_position, true, _color, BOX, ofGetWidth(), ofGetHeight()) {};
+  void Hit() { printf("Player hit!\n"); };
 };
