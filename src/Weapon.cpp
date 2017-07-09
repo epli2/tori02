@@ -65,7 +65,6 @@ void Weapon::DrawGun() {
   shader.setUniform1fv("freq", freq, NUM);
   light_.drawFaces();
   shader.end();
-  // gun_.drawWireframe();
 }
 
 void Weapon::DrawBullet() {

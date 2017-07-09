@@ -3,8 +3,6 @@
 #include "ofMain.h"
 #include "ofxAssimpModelLoader.h"
 #include "Common.h"
-// #include "ofxGui.h"
-
 
 class GameUI {
 private:
@@ -33,12 +31,4 @@ public:
   void Update();
   void Draw();
   void SetColor(Color _color);
-
-  // gui
-  /*
-  ofxPanel gui1;
-  ofxIntSlider hpbar;
-  ofxVec2Slider position;
-  ofxColorSlider barcolor;
-  */
 };

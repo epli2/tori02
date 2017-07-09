@@ -61,7 +61,6 @@ void ButtleScene::Draw() {
   }
   weapon.DrawBullet();
   enemycloud.Draw();
-  glPopAttrib();  
   cam.end();
   gameui.SetColor(color);
   gameui.Draw();

@@ -8,7 +8,7 @@ void ofApp::setup() {
 
   ofSetFrameRate(60);
   ofSetVerticalSync(true);
-  // ofSetLogLevel(OF_LOG_VERBOSE);  
+  // ofSetLogLevel(OF_LOG_VERBOSE);
   nowscene = new StartScene();
 }
 
@@ -50,5 +50,5 @@ void ofApp::nextScene() {
   else if (nowscene->GetName() == "buttle") {
     delete nowscene;
     nowscene = new StartScene();
-  } 
+  }
 }
