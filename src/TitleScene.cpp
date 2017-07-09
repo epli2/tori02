@@ -1,6 +1,7 @@
 #include "TitleScene.h"
 
 TitleScene::TitleScene() {
+  name_ = "title";
   leap_.open();
   leap_.setReceiveBackgroundFrames(true);
   backgroundshader_.load("", shaderpath_background_);

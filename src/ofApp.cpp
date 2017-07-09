@@ -8,39 +8,19 @@ void ofApp::setup() {
 
   ofSetFrameRate(60);
   ofSetVerticalSync(true);
-  // ofSetLogLevel(OF_LOG_VERBOSE);
-  scene = TITLE;
+  // ofSetLogLevel(OF_LOG_VERBOSE);  
+  nowscene = new StartScene();
 }
 
 void ofApp::update() {
-  switch (scene)
-  {
-  case TITLE:
-    titlescene.Update();
-    break;
-  case BUTTLE:
-    buttlescene.Update();
-    break;
-  default:
-    break;
-  }
+  nowscene->Update();
 }
 
 void ofApp::draw() {
 #ifdef USE_DIMENCO_OPENGL_INTERFACE
   dimencoSetBackgroundState();
 #endif
-  switch (scene)
-  {
-  case TITLE:
-    titlescene.Draw();
-    break;
-  case BUTTLE:
-    buttlescene.Draw();
-    break;
-  default:
-    break;
-  }
+  nowscene->Draw();
 #ifdef USE_DIMENCO_OPENGL_INTERFACE
   dimencoSetZBufState();
 #endif
@@ -53,21 +33,22 @@ void ofApp::keyPressed(int key) {
   if (key == 's') {
     nextScene();
   }
-  switch (scene)
-  {
-  case TITLE:
-    titlescene.KeyPressed(key);
-    break;
-  case BUTTLE:
-    buttlescene.KeyPressed(key);
-    break;
-  default:
-    break;
-  }
+  nowscene->KeyPressed(key);
 }
 
 void ofApp::exit() {}
 
 void ofApp::nextScene() {
-  scene = BUTTLE;
+  if (nowscene->GetName() == "start") {
+    delete nowscene;
+    nowscene = new TitleScene();
+  }
+  else if (nowscene->GetName() == "title") {
+    delete nowscene;
+    nowscene = new ButtleScene();
+  }
+  else if (nowscene->GetName() == "buttle") {
+    delete nowscene;
+    nowscene = new StartScene();
+  } 
 }

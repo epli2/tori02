@@ -1,6 +1,7 @@
 #include "ButtleScene.h"
 
 ButtleScene::ButtleScene() {
+  name_ = "buttle";
   leap.open();
   leap.setReceiveBackgroundFrames(true);
   cam.setOrientation(ofPoint(0, 0, 0));

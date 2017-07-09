@@ -7,9 +7,10 @@
 #include "EnemyCloud.h"
 #include "GameUI.h"
 #include "Player.h"
+#include "Scene.h"
 #include "Weapon.h"
 
-class ButtleScene {
+class ButtleScene : public Scene {
 private:
   ofxLeapMotion leap;
   ofLight light;

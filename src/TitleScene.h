@@ -2,9 +2,10 @@
 
 #include "ofMain.h"
 #include "ofxLeapMotion2.h"
+#include "Scene.h"
 #include "Weapon.h"
 
-class TitleScene {
+class TitleScene : public Scene {
 private:
   ofLight light_;
   ofEasyCam cam_;
