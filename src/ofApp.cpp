@@ -5,7 +5,7 @@ void ofApp::setup() {
   dimencoInit();
   dimencoInitState();
 #endif
-
+  ofSetWindowTitle("Kalaster");
   ofSetFrameRate(60);
   ofSetVerticalSync(true);
   // ofSetLogLevel(OF_LOG_VERBOSE);
