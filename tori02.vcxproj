@@ -173,6 +173,7 @@
   <ItemGroup>
     <ClCompile Include="src\ButtleScene.cpp" />
     <ClCompile Include="src\Collision.cpp" />
+    <ClCompile Include="src\EndScene.cpp" />
     <ClCompile Include="src\EnemyCloud.cpp" />
     <ClCompile Include="src\GameUI.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="src\ButtleScene.h" />
     <ClInclude Include="src\ColliderObject.h" />
     <ClInclude Include="src\Collision.h" />
+    <ClInclude Include="src\EndScene.h" />
     <ClInclude Include="src\EnemyCloud.h" />
     <ClInclude Include="src\GameUI.h" />
     <ClInclude Include="src\ofApp.h" />

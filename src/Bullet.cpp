@@ -29,6 +29,7 @@ void Bullet::Update() {
 
 void Bullet::Draw() {
   mesh_.clear();
+  ofPushStyle();
   switch (color_) {
   case RED:
     ofSetColor(232, 60, 55);
@@ -45,6 +46,7 @@ void Bullet::Draw() {
   }
   mesh_.draw();
   ofCircle(position_, 4);
+  ofPopStyle();
 }
 
 void Bullet::Hit() {

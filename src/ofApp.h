@@ -10,6 +10,7 @@
 #include "StartScene.h"
 #include "TitleScene.h"
 #include "ButtleScene.h"
+#include "EndScene.h"
 
 class ofApp : public ofBaseApp {
 private:
@@ -22,5 +23,6 @@ public:
   void update();
   void draw();
   void keyPressed(int key);
+  void keyReleased(int key);
   void exit();
 };

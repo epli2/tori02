@@ -35,8 +35,10 @@ void GameUI::Update() {}
 void GameUI::Draw() {
   char sc[255];
   sprintf(sc, "SCORE : %d", sp_);
+  ofPushStyle();
   ofSetColor(30, 200, 200);
   verdana.drawString(sc, ofGetWidth() - (ofGetWidth() / 9), ofGetHeight() / 20);
+  ofPopStyle();
 
   uipanel_.setPosition(0, ofGetHeight(), 0);
   uipanel_.drawFaces();

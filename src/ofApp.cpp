@@ -36,6 +36,10 @@ void ofApp::keyPressed(int key) {
   nowscene->KeyPressed(key);
 }
 
+void ofApp::keyReleased(int key){
+  nowscene->KeyReleased(key);
+}
+
 void ofApp::exit() {}
 
 void ofApp::nextScene() {
@@ -48,6 +52,10 @@ void ofApp::nextScene() {
     nowscene = new ButtleScene();
   }
   else if (nowscene->GetName() == "buttle") {
+    delete nowscene;
+    nowscene = new EndScene();
+  }
+  else if (nowscene->GetName() == "end") {
     delete nowscene;
     nowscene = new StartScene();
   }

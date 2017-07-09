@@ -47,11 +47,13 @@ void ButtleScene::Draw() {
   glClear(GL_DEPTH_BUFFER_BIT);
 
   cam.begin(ofRectangle(0, 0, ofGetWidth(), ofGetHeight()));
+  ofPushStyle();
   ofSetColor(200, 0, 0);
   ofDrawBitmapString("Leap Connected? " + ofToString(leap.isConnected()),
                      -ofGetWidth() / 2 - 200, -ofGetHeight() / 2);
   ofDrawBitmapString(ofToString(ofGetFrameRate()), ofGetWidth() / 2 + 100,
                      -ofGetHeight() / 2);
+  ofPopStyle();
 
   for (auto simpleHand : simpleHands) {
     ofPoint handPos = simpleHand.handPos;

@@ -21,5 +21,6 @@ public:
   void Update();
   void Draw();
   void KeyPressed(int _key);
+  void KeyReleased(int _key) {};
   ~TitleScene() { leap_.close(); };
 };

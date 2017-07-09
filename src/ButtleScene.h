@@ -35,5 +35,11 @@ public:
   void Update();
   void Draw();
   void KeyPressed(int _key);
-  ~ButtleScene() { leap.close(); };
+  void KeyReleased(int _key) {};
+  ~ButtleScene() {
+    glDisable(GL_DEPTH_TEST);
+    glDisable(GL_NORMALIZE);
+    glDisable(GL_LIGHTING);
+    leap.close();
+  };
 };
