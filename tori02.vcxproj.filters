@@ -85,6 +85,9 @@
     <ClCompile Include="src\EndScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\BossScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -345,6 +348,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\EndScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BossScene.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

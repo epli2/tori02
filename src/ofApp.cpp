@@ -53,6 +53,10 @@ void ofApp::nextScene() {
   }
   else if (nowscene->GetName() == "buttle") {
     delete nowscene;
+    nowscene = new BossScene();
+  }
+  else if (nowscene->GetName() == "boss") {
+    delete nowscene;
     nowscene = new EndScene();
   }
   else if (nowscene->GetName() == "end") {

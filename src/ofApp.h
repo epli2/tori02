@@ -10,6 +10,7 @@
 #include "StartScene.h"
 #include "TitleScene.h"
 #include "ButtleScene.h"
+#include "BossScene.h"
 #include "EndScene.h"
 
 class ofApp : public ofBaseApp {
