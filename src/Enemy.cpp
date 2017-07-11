@@ -10,7 +10,7 @@ Enemy::Enemy(ofVec3f _position, float _hp, float _attack, Color _color, EnemyTyp
     body_.setScale(100, 100, 100);
   }
   else {
-    body_.setScale(50, 50, 50);
+    body_.setScale(100, 100, 100);
   }
   body_.setRotation(2, 180, 0, 0, 1);
   body_.enableMaterials();
