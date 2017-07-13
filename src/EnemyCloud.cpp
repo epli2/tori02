@@ -2,17 +2,21 @@
 
 EnemyCloud::EnemyCloud() : EnemyCloud(10) {}
 
-EnemyCloud::EnemyCloud(int _number) : number_(_number) {
+EnemyCloud::EnemyCloud(int _number)
+  : EnemyCloud(_number, true, true, ofVec3f(30, 10, 10) * 100, ofVec3f(30, 10, 100) * 100) {}
+
+EnemyCloud::EnemyCloud(int _number, bool _isauto, bool _ismove, ofVec3f _range_p, ofVec3f _range_n)
+  : number_(_number), isauto_(_isauto), ismove_(_ismove), range_p_(_range_p), range_n_(_range_n) {
   Init(_number);
 }
 
 void EnemyCloud::Init(int _number) {
   number_ = _number;
-  int posrange = 100;
+  int posrange = 1;
   for (int i = 0; i < number_; i++) {
-    ofVec3f pos = ofVec3f(ofRandom(-posrange * 30, posrange * 30),
-                          ofRandom(-posrange * 10, posrange * 10),
-                          ofRandom(-posrange * 100, -posrange * 10));
+    ofVec3f pos = ofVec3f(ofRandom(-posrange * range_n_.x, posrange * range_p_.x),
+                          ofRandom(-posrange * range_n_.y, posrange * range_p_.y),
+                          ofRandom(-posrange * range_n_.z, -posrange * range_p_.z));
     float hp = ofRandom(100, 500);
     float attack = ofRandom(100, 300);
     Color color = Color(static_cast<int>(ofRandom(0, 3)));
@@ -28,13 +32,17 @@ void EnemyCloud::Update() {
       itr = enemys_.erase(itr);
       number_ -= 1;
       printf("kill enemy\n");
-      Init(1);
+      if (isauto_) {
+        Init(1);
+      }
     } else {
       itr++;
     }
   }
   for (auto&& enemy : enemys_) {
-    enemy.SetPosition(enemy.GetPosition() + ofVec3f(0, 0, 50));
+    if (ismove_) {
+      enemy.SetPosition(enemy.GetPosition() + ofVec3f(0, 0, 50));
+    }
     enemy.Update();
   }
 }
