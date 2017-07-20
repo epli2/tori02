@@ -28,6 +28,7 @@ private:
   Status bossstatus_;
   ofxAssimpModelLoader* bodyptr_;
   float firetime_;
+  static const int NCHILDREN = 20;
 
 public:
   Boss();

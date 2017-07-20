@@ -4,9 +4,7 @@ Boss::Boss() : Boss(ofVec3f(0, -500, -1500), GREEN, 500) {}
 
 Boss::Boss(ofVec3f _position, Color _color, float _radius)
   : ColliderObject(_position, true, _color, CIRCLE, _radius) {
-  printf("Boss: position x = %f, y = %f, z = %f\n", position_.x, position_.y, position_.z);
   body_ = ModelInit(modelpath_body_);
-  // body_.setLoopStateForAllAnimations(OF_LOOP_NORMAL);
   body_.playAllAnimations();
   body_atk1_ = ModelInit(modelpath_body_atk1_);
   body_atk2_ = ModelInit(modelpath_body_atk2_);
@@ -37,8 +35,6 @@ void Boss::Update() {
       bodyptr_->resetAllAnimations();
       bodyptr_->playAllAnimations();
       firetime_ = ofGetElapsedTimef();
-      //Fire();
-      //printf("Boss: fire\n");
     }
     else if (rnd >= 70 && rnd < 80) {
       bossstatus_ = NORMAL;
@@ -73,7 +69,7 @@ void Boss::Update() {
     printf("Boss: fire\n");
     firetime_ = nowtime;
   }
-  if (bossstatus_ == PUT && nowtime - firetime_ > 1) {
+  if (bossstatus_ == PUT && nowtime - firetime_ > 1 && enemyclouds_.size() * 2 < NCHILDREN) {
     enemyclouds_.push_back(EnemyCloud(2, false, false, ofVec3f(position_.x + ofGetWidth(), position_.y + ofGetHeight(), -position_.z - 100),
       ofVec3f(position_.x + ofGetWidth(), position_.y + ofGetHeight(), -position_.z + 100)));
     printf("Boss: put children\n");
