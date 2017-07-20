@@ -6,15 +6,17 @@ BossScene::BossScene() {
   leap_.setReceiveBackgroundFrames(true);
   cam_.setOrientation(ofPoint(0, 0, 0));
   light_.setPosition(1000, 1000, 2000);
+  gameui_.Setup();
   bv.push_back(&boss_);
   pv.push_back(&player_);
   collision_bullets_and_boss_.Init(weapon_.GetObjectsPtr(), bv);
+  collision_bullets_and_enemys_.Init(weapon_.GetObjectsPtr(), boss_.GetEnemysPtr());
   collision_bullets_and_player_.Init(boss_.GetBulletsPtr(), pv);
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_NORMALIZE);
   glEnable(GL_LIGHTING);
   light_.enable();
-  weapon_.SetColor(GREEN);
+  weapon_.SetColor(color_);
 }
 
 void BossScene::Update() {
@@ -28,9 +30,11 @@ void BossScene::Update() {
   }
   leap_.markFrameAsOld();
   collision_bullets_and_boss_.Update(weapon_.GetObjectsPtr(), bv);
+  collision_bullets_and_enemys_.Update(weapon_.GetObjectsPtr(), boss_.GetEnemysPtr());
   collision_bullets_and_player_.Update(boss_.GetBulletsPtr(), pv);
   boss_.Update();
   weapon_.Update();
+  gameui_.Update();
 }
 
 void BossScene::Draw() {
@@ -39,20 +43,29 @@ void BossScene::Draw() {
   for (auto simpleHand : simpleHands_) {
     ofPoint handPos = simpleHand.handPos;
     weapon_.SetPosition(handPos);
-    weapon_.SetColor(GREEN);
+    weapon_.SetColor(color_);
     weapon_.DrawGun();
   }
   weapon_.DrawBullet();
   cam_.end();
+  gameui_.SetColor(color_);
+  gameui_.Draw();
 }
 
 void BossScene::KeyPressed(int _key) {
   if (_key == 'f' && simpleHands_.size()) {
     weapon_.Fire();
   }
+  if (_key == 'c') {
+    ChangeColor();
+  }
 }
 
 void BossScene::KeyReleased(int _key) {}
+
+void BossScene::ChangeColor() {
+  color_ = Color((color_ + 1) % 3);
+}
 
 BossScene::~BossScene() {
   glDisable(GL_DEPTH_TEST);

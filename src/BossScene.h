@@ -25,6 +25,7 @@ private:
   std::vector<ColliderObject*> bv;
   std::vector<ColliderObject*> pv;
   Collision collision_bullets_and_boss_;
+  Collision collision_bullets_and_enemys_;
   Collision collision_bullets_and_player_;
 
 public:
@@ -33,5 +34,6 @@ public:
   void Draw();
   void KeyPressed(int _key);
   void KeyReleased(int _key);
+  void ChangeColor();
   ~BossScene();
 };

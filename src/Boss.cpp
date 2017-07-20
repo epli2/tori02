@@ -1,15 +1,18 @@
 #include "Boss.h"
 
-Boss::Boss() : Boss(ofVec3f(0, -500, -1500), GREEN, 100) {}
+Boss::Boss() : Boss(ofVec3f(0, -500, -1500), GREEN, 500) {}
 
 Boss::Boss(ofVec3f _position, Color _color, float _radius)
   : ColliderObject(_position, true, _color, CIRCLE, _radius) {
-  body_.loadModel(modelpath_body_);
-  body_.setScaleNormalization(false);
-  body_.setScale(radius_ * 100, radius_ * 100, radius_ * 100);
-  body_.setRotation(2, 180, 0, 0, 1);
-  body_.setLoopStateForAllAnimations(OF_LOOP_NORMAL);
+  printf("Boss: position x = %f, y = %f, z = %f\n", position_.x, position_.y, position_.z);
+  body_ = ModelInit(modelpath_body_);
+  // body_.setLoopStateForAllAnimations(OF_LOOP_NORMAL);
   body_.playAllAnimations();
+  body_atk1_ = ModelInit(modelpath_body_atk1_);
+  body_atk2_ = ModelInit(modelpath_body_atk2_);
+  body_damage_ = ModelInit(modelpath_body_damage_);
+  bossstatus_ = NORMAL;
+  bodyptr_ = &body_;
 
   for (int i = 0; i < NUM; i++) {
     freq_[i] = ofRandom(4.0, 10.0);
@@ -19,25 +22,66 @@ Boss::Boss(ofVec3f _position, Color _color, float _radius)
 }
 
 void Boss::Update() {
-  float nowtime = ofGetElapsedTimef();
-  float difftime = nowtime - starttime_;
-  if (int(ofRandom(0, 100)) == 50) {
-    Fire();
-    printf("Boss: fire\n");
+  if (bodyptr_->getAnimation(0).isFinished()) {
+    int rnd = int(ofRandom(40, 100));
+    printf("rnd = %d\n", rnd);
+    if (rnd < 50) {
+      bossstatus_ = NORMAL;
+      bodyptr_ = &body_;
+      bodyptr_->resetAllAnimations();
+      bodyptr_->playAllAnimations();
+    }
+    else if (rnd >= 50 && rnd < 70) {
+      bossstatus_ = FIRE;
+      bodyptr_ = &body_atk2_;
+      bodyptr_->resetAllAnimations();
+      bodyptr_->playAllAnimations();
+      firetime_ = ofGetElapsedTimef();
+      //Fire();
+      //printf("Boss: fire\n");
+    }
+    else if (rnd >= 70 && rnd < 80) {
+      bossstatus_ = NORMAL;
+      bodyptr_ = &body_;
+      bodyptr_->resetAllAnimations();
+      bodyptr_->playAllAnimations();
+      ChangeColor();
+      printf("Boss: change color\n");
+    }
+    else if (rnd >= 80 && rnd < 90) {
+      bossstatus_ = PUT;
+      bodyptr_ = &body_atk2_;
+      bodyptr_->resetAllAnimations();
+      bodyptr_->playAllAnimations();
+      firetime_ = ofGetElapsedTimef();
+    }
+    else if (rnd >= 90) {
+      bossstatus_ = PUNCH;
+      bodyptr_ = &body_atk1_;
+      bodyptr_->resetAllAnimations();
+      bodyptr_->playAllAnimations();
+      printf("Boss: punch\n");
+    }
+    printf("Boss: animationcount = %d\n", bodyptr_->getAnimationCount());
   }
-  if (int(ofRandom(0, 200)) == 50) {
-    ChangeColor();
-    printf("Boss: change color\n");
-  }
-  /*if (int(ofRandom(0, 200)) == 50) {
-    enemyclouds_.push_back(EnemyCloud(5, false, false, ofVec3f(2000, 1000, 1000), ofVec3f(2000, 1000, position_.z)));
-    printf("Boss: put children\n");
-  }*/
   UpdateBullets();
   UpdateChildren();
 
-  body_.update();
-  wingmesh_ = body_.getCurrentAnimatedMesh(1);
+  float nowtime = ofGetElapsedTimef();
+  if (bossstatus_ == FIRE && nowtime - firetime_ > 1) {
+    Fire();
+    printf("Boss: fire\n");
+    firetime_ = nowtime;
+  }
+  if (bossstatus_ == PUT && nowtime - firetime_ > 1) {
+    enemyclouds_.push_back(EnemyCloud(2, false, false, ofVec3f(position_.x + ofGetWidth(), position_.y + ofGetHeight(), -position_.z - 100),
+      ofVec3f(position_.x + ofGetWidth(), position_.y + ofGetHeight(), -position_.z + 100)));
+    printf("Boss: put children\n");
+    firetime_ = nowtime;
+  }
+
+  bodyptr_->update();
+  wingmesh_ = bodyptr_->getCurrentAnimatedMesh(1);
 }
 
 void Boss::UpdateBullets() {
@@ -81,16 +125,16 @@ void Boss::Draw() {
   shader_.setUniform3f("u_color", rgbcolor.r / 255.0, rgbcolor.g / 255.0, rgbcolor.b / 255.0);
   shader_.setUniform1fv("freq", freq_, NUM);
   ofPushMatrix();
-  ofTranslate(body_.getPosition().x, body_.getPosition().y, body_.getPosition().z);
-  ofTranslate(-body_.getPosition().x, -body_.getPosition().y, -body_.getPosition().z);
-  ofxAssimpMeshHelper & meshHelper = body_.getMeshHelper(1);
-  ofMultMatrix(body_.getModelMatrix());
+  ofTranslate(bodyptr_->getPosition().x, bodyptr_->getPosition().y, bodyptr_->getPosition().z);
+  ofTranslate(-bodyptr_->getPosition().x, -bodyptr_->getPosition().y, -bodyptr_->getPosition().z);
+  ofxAssimpMeshHelper & meshHelper = bodyptr_->getMeshHelper(1);
+  ofMultMatrix(bodyptr_->getModelMatrix());
   ofMultMatrix(meshHelper.matrix);
   wingmesh_.drawFaces();
   ofPopMatrix();
   shader_.end();
-  body_.setPosition(position_.x, position_.y, position_.z);
-  body_.drawFaces();
+  bodyptr_->setPosition(position_.x, position_.y, position_.z);
+  bodyptr_->drawFaces();
   DrawBullet();
   DrawChildren();
 }
@@ -112,7 +156,22 @@ void Boss::ChangeColor() {
 }
 
 void Boss::Fire() {
-  bullets_.push_back(Bullet(position_ + ofVec3f(0, 50 * ofGetHeight() / 90, 0), 100000, color_, ofVec3f(0, 0, 50)));
+  bullets_.push_back(Bullet(position_ + ofVec3f(0, 50 * ofGetHeight() / 90, 0) + ofRandom(-100, 100), 100000, color_, ofVec3f(0, 0, 10)));
+  bullets_.push_back(Bullet(position_ + ofVec3f(0, 50 * ofGetHeight() / 90, 0) + ofRandom(-100, 100), 100000, color_, ofVec3f(0, 0, 10)));
+  bullets_.push_back(Bullet(position_ + ofVec3f(0, 50 * ofGetHeight() / 90, 0) + ofRandom(-100, 100), 100000, color_, ofVec3f(0, 0, 10)));
+}
+
+void Boss::Hit() {
+  printf("Boss: Hit!\n");
+}
+
+ofxAssimpModelLoader Boss::ModelInit(std::string modelpath) {
+  ofxAssimpModelLoader body;
+  body.loadModel(modelpath);
+  body.setScaleNormalization(false);
+  body.setScale(radius_ * 20, radius_ * 20, radius_ * 20);
+  body.setRotation(2, 180, 0, 0, 1);
+  return body;
 }
 
 std::vector<ColliderObject*> Boss::GetBulletsPtr() {
@@ -120,7 +179,22 @@ std::vector<ColliderObject*> Boss::GetBulletsPtr() {
   for (auto&& bullet : bullets_) {
     enemybulletrefs.push_back(&bullet);
   }
+  for (auto&& enemycloud : enemyclouds_) {
+    for (auto&& bullet : enemycloud.GetAllBulletsPtr()) {
+      enemybulletrefs.push_back(bullet);
+    }
+  }
   return enemybulletrefs;
+}
+
+std::vector<ColliderObject*> Boss::GetEnemysPtr() {
+  std::vector<ColliderObject*> enemyrefs;
+  for (auto&& enemycloud : enemyclouds_) {
+    for (auto&& enemy : enemycloud.GetObjectsPtr()) {
+      enemyrefs.push_back(enemy);
+    }
+  }
+  return enemyrefs;
 }
 
 Boss::~Boss() {}
