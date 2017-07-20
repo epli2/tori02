@@ -8,10 +8,8 @@
 
 class Boss : public ColliderObject {
 private:
-  std::string modelpath_body_ = "models2/robot_body.obj";
-  std::string modelpath_light_ = "models2/robot_light.obj";
+  std::string modelpath_body_ = "models2/robot_nomal.dae";
   ofxAssimpModelLoader body_;
-  ofxAssimpModelLoader light_;
   std::string shaderpath_ = "shader/shader_sin.frag";
   ofShader shader_;
   static const int NUM = 20;
@@ -19,6 +17,7 @@ private:
   float starttime_;
   std::vector<Bullet> bullets_;
   std::vector<EnemyCloud> enemyclouds_;
+  ofMesh wingmesh_;
 
 public:
   Boss();

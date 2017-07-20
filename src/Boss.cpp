@@ -6,12 +6,11 @@ Boss::Boss(ofVec3f _position, Color _color, float _radius)
   : ColliderObject(_position, true, _color, CIRCLE, _radius) {
   body_.loadModel(modelpath_body_);
   body_.setScaleNormalization(false);
-  light_.loadModel(modelpath_light_);
-  light_.setScaleNormalization(false);
-  body_.setScale(radius_, radius_, radius_);
-  light_.setScale(radius_, radius_, radius_);
+  body_.setScale(radius_ * 100, radius_ * 100, radius_ * 100);
   body_.setRotation(2, 180, 0, 0, 1);
-  light_.setRotation(2, 180, 0, 0, 1);
+  body_.setLoopStateForAllAnimations(OF_LOOP_NORMAL);
+  body_.playAllAnimations();
+
   for (int i = 0; i < NUM; i++) {
     freq_[i] = ofRandom(4.0, 10.0);
   }
@@ -36,6 +35,9 @@ void Boss::Update() {
   }*/
   UpdateBullets();
   UpdateChildren();
+
+  body_.update();
+  wingmesh_ = body_.getCurrentAnimatedMesh(1);
 }
 
 void Boss::UpdateBullets() {
@@ -78,8 +80,14 @@ void Boss::Draw() {
   shader_.setUniform2f("u_resolution", ofGetWidth(), ofGetHeight());
   shader_.setUniform3f("u_color", rgbcolor.r / 255.0, rgbcolor.g / 255.0, rgbcolor.b / 255.0);
   shader_.setUniform1fv("freq", freq_, NUM);
-  light_.setPosition(position_.x, position_.y, position_.z);
-  light_.drawFaces();
+  ofPushMatrix();
+  ofTranslate(body_.getPosition().x, body_.getPosition().y, body_.getPosition().z);
+  ofTranslate(-body_.getPosition().x, -body_.getPosition().y, -body_.getPosition().z);
+  ofxAssimpMeshHelper & meshHelper = body_.getMeshHelper(1);
+  ofMultMatrix(body_.getModelMatrix());
+  ofMultMatrix(meshHelper.matrix);
+  wingmesh_.drawFaces();
+  ofPopMatrix();
   shader_.end();
   body_.setPosition(position_.x, position_.y, position_.z);
   body_.drawFaces();
