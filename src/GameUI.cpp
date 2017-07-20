@@ -38,6 +38,7 @@ void GameUI::Draw() {
   ofPushStyle();
   ofSetColor(30, 200, 200);
   verdana.drawString(sc, ofGetWidth() - (ofGetWidth() / 9), ofGetHeight() / 20);
+  verdana.drawString("HP: " + ofToString(playerhp_), ofGetWidth() - (ofGetWidth() / 9), ofGetHeight() / 10);
   ofPopStyle();
 
   uipanel_.setPosition(0, ofGetHeight(), 0);
@@ -74,4 +75,8 @@ void GameUI::SetColor(Color _color) {
     ccolor_ = ofColor(53, 61, 255);
     break;
   }
+}
+
+void GameUI::SetPlayerHP(float _hp) {
+  playerhp_ = _hp;
 }

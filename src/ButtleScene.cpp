@@ -64,6 +64,7 @@ void ButtleScene::Draw() {
   weapon.DrawBullet();
   enemycloud.Draw();
   cam.end();
+  gameui.SetPlayerHP(player.hp_);
   gameui.SetColor(color);
   gameui.Draw();
 }
