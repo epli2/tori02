@@ -7,6 +7,7 @@ protected:
   string name_;
 
 public:
+  bool isend_;
   Scene() {};
   virtual void Update() = 0;
   virtual void Draw() = 0;

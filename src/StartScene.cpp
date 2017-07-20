@@ -2,6 +2,7 @@
 
 StartScene::StartScene() {
   name_ = "start";
+  isend_ = false;
   img_tori_.load(imgpath_tori_);
   img_title_.load(imgpath_title_);
   img_title_.resize(img_title_.getWidth() / 2.5, img_title_.getHeight() / 2.5);
@@ -25,6 +26,9 @@ void StartScene::Draw() {
     ofSetColor(255, 255, 255, 255 - 255 * (etime * etime * etime / 64));
     img_title_.draw(ofGetWidth() / 2 - img_title_.getWidth() / 2, ofGetHeight() / 2 - img_title_.getHeight() / 2);
     ofPopStyle();
+  }
+  if (etime > 8.5) {
+    isend_ = true;
   }
 }
 

@@ -2,6 +2,7 @@
 
 EndScene::EndScene() {
   name_ = "end";
+  isend_ = false;
   ofTrueTypeFont::setGlobalDpi(72);
   font_.load("Verdana.ttf", 30);
   font_.setLineHeight(24);
@@ -22,7 +23,9 @@ void EndScene::Draw() {
   float etime = ofGetElapsedTimef() - starttime_;
   float posY = ofGetHeight() - etime * 120 * speed_;
   int count = 0;
-
+  if (etime > 70) {
+    isend_ = true;
+  }
   xml_names_.setTo("names");
   for (int i = 0; i < xml_names_.getNumChildren(); i++) {
     std::string staffname = xml_names_.getValue<std::string>("name[" + std::to_string(i) + "]");

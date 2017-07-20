@@ -14,6 +14,9 @@ void ofApp::setup() {
 
 void ofApp::update() {
   nowscene->Update();
+  if (nowscene->isend_) {
+    nextScene();
+  }
 }
 
 void ofApp::draw() {

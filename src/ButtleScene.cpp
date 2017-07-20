@@ -2,6 +2,7 @@
 
 ButtleScene::ButtleScene() {
   name_ = "buttle";
+  isend_ = false;
   leap.open();
   leap.setReceiveBackgroundFrames(true);
   cam.setOrientation(ofPoint(0, 0, 0));
@@ -21,6 +22,9 @@ ButtleScene::ButtleScene() {
 }
 
 void ButtleScene::Update() {
+  if (player.hp_ <= 0) {
+    isend_ = true;
+  }
   fingersFound.clear();
   simpleHands = leap.getSimpleHands();
 
