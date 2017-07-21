@@ -33,11 +33,9 @@ void GameUI::Setup() {
 void GameUI::Update() {}
 
 void GameUI::Draw() {
-  char sc[255];
-  sprintf(sc, "SCORE : %d", sp_);
   ofPushStyle();
   ofSetColor(30, 200, 200);
-  verdana.drawString(sc, ofGetWidth() - (ofGetWidth() / 9), ofGetHeight() / 20);
+  verdana.drawString("SCORE : " + ofToString(sp_), ofGetWidth() - (ofGetWidth() / 9), ofGetHeight() / 20);
   verdana.drawString("HP: " + ofToString(playerhp_), ofGetWidth() - (ofGetWidth() / 9), ofGetHeight() / 10);
   ofPopStyle();
 
