@@ -30,6 +30,7 @@ private:
   ofShader backgroundshader_;
   float prevfiretime_;
 
+  void ChangeColor();
   void WeaponFire();
 
 public:
@@ -38,6 +39,5 @@ public:
   void Draw();
   void KeyPressed(int _key);
   void KeyReleased(int _key);
-  void ChangeColor();
   ~BossScene();
 };
