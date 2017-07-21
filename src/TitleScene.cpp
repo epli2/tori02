@@ -15,6 +15,9 @@ TitleScene::TitleScene() {
   glEnable(GL_LIGHTING);
   light_.enable();
   weapon_.SetColor(color_);
+  bgm_.loadSound(bgmpath_);
+  bgm_.setVolume(0.5f);
+  bgm_.play();
 }
 
 void TitleScene::Update() {

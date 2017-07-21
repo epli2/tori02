@@ -22,6 +22,9 @@ BossScene::BossScene() {
   light_.enable();
   weapon_.SetColor(color_);
   boss_.GetHPPtr(&player_.hp_);
+  bgm_.loadSound(bgmpath_);
+  bgm_.setVolume(0.5f);
+  bgm_.play();
 }
 
 void BossScene::Update() {
@@ -179,5 +182,6 @@ BossScene::~BossScene() {
   glDisable(GL_DEPTH_TEST);
   glDisable(GL_NORMALIZE);
   glDisable(GL_LIGHTING);
+  bgm_.unload();
   leap_.close();
 };

@@ -9,8 +9,10 @@ private:
   ofXml xml_names_;
   std::string imgpath_tori_ = "images/logo_tori.png";
   std::string imgpath_title_ = "images/logo_title.png";
+  std::string bgmpath_ = "music/ed.wav";
   ofImage img_tori_;
   ofImage img_title_;
+  ofSoundPlayer bgm_;
   float starttime_;
   float speed_;
 

@@ -27,6 +27,8 @@ private:
   ofShader backgroundshader;
   Player player;
   std::vector<ColliderObject*> pv;
+  std::string bgmpath_ = "music/battle01.mp3";
+  ofSoundPlayer bgm_;
   float starttime_;
   float prevfiretime_;
 
@@ -43,6 +45,9 @@ public:
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_NORMALIZE);
     glDisable(GL_LIGHTING);
+    bgm_.loadSound(bgmpath_);
+    bgm_.setVolume(0.5f);
+    bgm_.play();
     leap.close();
   };
 };

@@ -13,7 +13,9 @@ private:
   vector<ofxLeapMotionSimpleHand> simpleHands_;
   vector<int> fingersFound_;
   ofShader backgroundshader_;
+  ofSoundPlayer bgm_;
   std::string shaderpath_background_ = "shader/shader_background_title.frag";
+  std::string bgmpath_ = "music/op01.mp3";
   Weapon weapon_;
   Color color_ = GREEN;
   float prevfiretime_;
@@ -26,5 +28,8 @@ public:
   void Draw();
   void KeyPressed(int _key);
   void KeyReleased(int _key) {};
-  ~TitleScene() { leap_.close(); };
+  ~TitleScene() {
+    bgm_.unload();
+    leap_.close();
+  };
 };

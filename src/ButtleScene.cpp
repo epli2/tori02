@@ -21,6 +21,9 @@ ButtleScene::ButtleScene() {
   glEnable(GL_NORMALIZE);
   glEnable(GL_LIGHTING);
   light.enable();
+  bgm_.loadSound(bgmpath_);
+  bgm_.setVolume(0.5f);
+  bgm_.play();
   starttime_ = ofGetElapsedTimef();
 }
 

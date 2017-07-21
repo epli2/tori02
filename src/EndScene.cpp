@@ -17,6 +17,9 @@ EndScene::EndScene() {
   ofBackground(0, 0, 0);
   starttime_ = ofGetElapsedTimef();
   speed_ = 1;
+  bgm_.loadSound(bgmpath_);
+  bgm_.setVolume(0.5f);
+  bgm_.play();
 }
 
 void EndScene::Update() {}
@@ -49,4 +52,6 @@ void EndScene::KeyPressed(int _key) {
 void EndScene::KeyReleased(int _key) {
 }
 
-EndScene::~EndScene() {};
+EndScene::~EndScene() {
+  bgm_.unload();
+};

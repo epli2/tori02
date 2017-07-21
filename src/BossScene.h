@@ -28,6 +28,8 @@ private:
   Collision collision_bullets_and_enemys_;
   Collision collision_bullets_and_player_;
   ofShader backgroundshader_;
+  std::string bgmpath_ = "music/boss.mp3";
+  ofSoundPlayer bgm_;
   float prevfiretime_;
 
   void ChangeColor();
