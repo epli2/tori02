@@ -8,6 +8,7 @@ class GameUI {
 private:
   int sp_;
   float playerhp_;
+  float bosshp_;
   Color color_;
   ofColor ccolor_;
   ofTrueTypeFont verdana;
@@ -34,4 +35,5 @@ public:
   void Draw();
   void SetColor(Color _color);
   void SetPlayerHP(float _hp);
+  void SetBossHP(float _hp);
 };

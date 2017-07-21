@@ -130,6 +130,7 @@ void BossScene::Draw() {
   weapon_.DrawBullet();
   cam_.end();
   gameui_.SetPlayerHP(player_.hp_);
+  gameui_.SetBossHP(boss_.hp_);
   gameui_.SetColor(color_);
   gameui_.Draw();
 }

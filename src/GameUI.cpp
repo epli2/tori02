@@ -5,6 +5,7 @@ GameUI::GameUI() : color_(GREEN), ccolor_(ofColor(232, 60, 55)), sp_(0) {}
 GameUI::~GameUI() {}
 
 void GameUI::Setup() {
+  bosshp_ = -1;
   ofTrueTypeFont::setGlobalDpi(72);
   verdana.load("Verdana.ttf", 30);
   verdana.setLineHeight(24);
@@ -54,6 +55,9 @@ void GameUI::Draw() {
   ofSetColor(30, 200, 200);
   verdana.drawString("SCORE : " + ofToString(sp_), ofGetWidth() - (ofGetWidth() / 9), ofGetHeight() / 20);
   verdana.drawString("HP: " + ofToString(playerhp_), ofGetWidth() - (ofGetWidth() / 9), ofGetHeight() / 10);
+  if (bosshp_ >= 0) {
+    verdana.drawString("BOSS HP: " + ofToString(bosshp_), 0, ofGetHeight() / 20);
+  }
   ofPopStyle();
 
   uipanel_.setPosition(0, ofGetHeight(), 0);
@@ -91,4 +95,8 @@ void GameUI::SetColor(Color _color) {
 
 void GameUI::SetPlayerHP(float _hp) {
   playerhp_ = _hp;
+}
+
+void GameUI::SetBossHP(float _hp) {
+  bosshp_ = _hp;
 }
