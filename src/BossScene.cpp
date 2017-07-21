@@ -9,6 +9,7 @@ BossScene::BossScene() {
   cam_.setOrientation(ofPoint(0, 0, 0));
   light_.setPosition(1000, 1000, 2000);
   gameui_.Setup();
+  backgroundshader_.load("", "shader/shader_background_boss.frag");
   bv.push_back(&boss_);
   pv.push_back(&player_);
   collision_bullets_and_boss_.Init(weapon_.GetObjectsPtr(), bv);
@@ -44,6 +45,13 @@ void BossScene::Update() {
 }
 
 void BossScene::Draw() {
+  backgroundshader_.begin();
+  backgroundshader_.setUniform1f("time", ofGetElapsedTimef());
+  backgroundshader_.setUniform2f("resolution", ofGetWidth(), ofGetHeight());
+  ofDrawPlane(0, 0, 0, ofGetWidth() * 100, ofGetHeight() * 100);
+  backgroundshader_.end();
+  glClear(GL_DEPTH_BUFFER_BIT);
+
   cam_.begin(ofRectangle(0, 0, ofGetWidth(), ofGetHeight()));
   boss_.Draw();
   for (auto simpleHand : simpleHands_) {
