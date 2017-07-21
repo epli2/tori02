@@ -28,9 +28,26 @@ void GameUI::Setup() {
   //uipanel_.enableMaterials();
   uimat_.enableMaterials();
   shader_.load("", shaderpath_uimat_);
+  uibar_decr_ = ofVec3f(0);
 }
 
-void GameUI::Update() {}
+void GameUI::Update() {
+  if (uibar_decr_.x > 0) {
+    uibar_decr_.x -= 0.01;
+  }
+  if (uibar_decr_.y > 0) {
+    uibar_decr_.y -= 0.01;
+  }
+  if (uibar_decr_.z > 0) {
+    uibar_decr_.z -= 0.01;
+  }
+  uibar_r_.setPosition(20 + uibar_decr_.x * 6.8, ofGetHeight(), 0);
+  uibar_r_.setScale(20 - uibar_decr_.x, 20, 10);
+  uibar_g_.setPosition(20 + uibar_decr_.y * 6.8, ofGetHeight(), 0);
+  uibar_g_.setScale(20 - uibar_decr_.y, 20, 10);
+  uibar_b_.setPosition(20 + uibar_decr_.z * 6.8, ofGetHeight(), 0);
+  uibar_b_.setScale(20 - uibar_decr_.z, 20, 10);
+}
 
 void GameUI::Draw() {
   ofPushStyle();
@@ -48,9 +65,6 @@ void GameUI::Draw() {
   shader_.setUniform3f("color", ccolor_.r / 255.0, ccolor_.g / 255.0, ccolor_.b / 255.0);
   uimat_.drawFaces();
 
-  uibar_r_.setPosition(0, ofGetHeight(), 0);
-  uibar_g_.setPosition(0, ofGetHeight(), 0);
-  uibar_b_.setPosition(0, ofGetHeight(), 0);
   shader_.setUniform3f("color", 232.0 / 255.0, 60.0 / 255.0, 55.0 / 255.0);
   uibar_r_.drawFaces();
   shader_.setUniform3f("color", 72.0 / 255.0, 232.0 / 255.0, 124.0 / 255.0);

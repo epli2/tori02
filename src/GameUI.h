@@ -25,6 +25,7 @@ private:
   ofShader shader_;
 
 public:
+  ofVec3f uibar_decr_;
   GameUI();
   ~GameUI();
 

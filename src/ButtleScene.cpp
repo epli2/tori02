@@ -47,6 +47,7 @@ void ButtleScene::Update() {
   collision_enemys_and_player.Update(enemycloud.GetObjectsPtr(), pv);
   enemycloud.Update();
   weapon.Update();
+  gameui.Update();
 }
 
 void ButtleScene::Draw() {
@@ -83,8 +84,32 @@ void ButtleScene::Draw() {
 void ButtleScene::KeyPressed(int _key) {
   if (_key == 'f' && simpleHands.size()) {
     weapon.SetColor(color);
-    weapon.Fire();
-    printf("fire\n");
+    switch (color)
+    {
+    case RED:
+      if (20 - gameui.uibar_decr_.x > 0) {
+        weapon.Fire();
+        gameui.uibar_decr_.x += 1;
+        printf("fire\n");
+      }
+      break;
+    case GREEN:
+      if (20 - gameui.uibar_decr_.y > 0) {
+        weapon.Fire();
+        gameui.uibar_decr_.y += 1;
+        printf("fire\n");
+      }
+      break;
+    case BLUE:
+      if (20 - gameui.uibar_decr_.z > 0) {
+        weapon.Fire();
+        gameui.uibar_decr_.z += 1;
+        printf("fire\n");
+      }
+      break;
+    default:
+      break;
+    }
   }
   if (_key == 'c') {
     ChangeColor();

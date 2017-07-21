@@ -73,7 +73,32 @@ void BossScene::Draw() {
 
 void BossScene::KeyPressed(int _key) {
   if (_key == 'f' && simpleHands_.size()) {
-    weapon_.Fire();
+    switch (color_)
+    {
+    case RED:
+      if (20 - gameui_.uibar_decr_.x > 0) {
+        weapon_.Fire();
+        gameui_.uibar_decr_.x += 1;
+        printf("fire\n");
+      }
+      break;
+    case GREEN:
+      if (20 - gameui_.uibar_decr_.y > 0) {
+        weapon_.Fire();
+        gameui_.uibar_decr_.y += 1;
+        printf("fire\n");
+      }
+      break;
+    case BLUE:
+      if (20 - gameui_.uibar_decr_.z > 0) {
+        weapon_.Fire();
+        gameui_.uibar_decr_.z += 1;
+        printf("fire\n");
+      }
+      break;
+    default:
+      break;
+    }
   }
   if (_key == 'c') {
     ChangeColor();
