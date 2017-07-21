@@ -32,13 +32,49 @@ void ButtleScene::Update() {
   if (etime > 120) {
     isend_ = true;
   }
+  fingerType fingerTypes[] = { THUMB, INDEX, MIDDLE, RING, PINKY };
   fingersFound.clear();
   simpleHands = leap.getSimpleHands();
+  double middleDistanceX0;
+  double middleDistanceY0;
+  double middleDistanceZ0;
+  double middleDistanceX1;
+  double middleDistanceY1;
+  double middleDistanceZ1;
+  double middleDistanceSum0 = 20000;
+  double middleDistanceSum1 = 20000;
 
   if (leap.isFrameNew() && simpleHands.size()) {
     leap.setMappingX(-230, 230, -ofGetWidth() / 2, ofGetWidth() / 2);
     leap.setMappingY(90, 490, -ofGetHeight() / 2, ofGetHeight() / 2);
     leap.setMappingZ(-150, 150, -200, 200);
+    middleDistanceX0 =
+      simpleHands[0].fingers[MIDDLE].tip.x - simpleHands[0].handPos.x;
+    middleDistanceY0 =
+      simpleHands[0].fingers[MIDDLE].tip.y - simpleHands[0].handPos.y;
+    middleDistanceZ0 =
+      simpleHands[0].fingers[MIDDLE].tip.z - simpleHands[0].handPos.z;
+    middleDistanceSum0 = middleDistanceX0 * middleDistanceX0 +
+      middleDistanceY0 * middleDistanceY0 +
+      middleDistanceZ0 * middleDistanceZ0;
+    // printf("%d", simpleHands.size());
+    if (simpleHands.size() == 2) {
+      // printf("!!\n");
+      middleDistanceX1 =
+        simpleHands[1].fingers[MIDDLE].tip.x - simpleHands[1].handPos.x;
+      middleDistanceY1 =
+        simpleHands[1].fingers[MIDDLE].tip.y - simpleHands[1].handPos.y;
+      middleDistanceZ1 =
+        simpleHands[1].fingers[MIDDLE].tip.z - simpleHands[1].handPos.z;
+      middleDistanceSum1 = middleDistanceX1 * middleDistanceX1 +
+        middleDistanceY1 * middleDistanceY1 +
+        middleDistanceZ1 * middleDistanceZ1;
+      if (middleDistanceSum1 > 10000) {
+        // printf("middleDistance1\n");
+        ChangeColor();
+        // printf("%d\n", color);
+      }
+    }
   }
   leap.markFrameAsOld();
   collision_bullets_and_enemys.Update(weapon.GetObjectsPtr(), enemycloud.GetObjectsPtr());
@@ -48,6 +84,14 @@ void ButtleScene::Update() {
   enemycloud.Update();
   weapon.Update();
   gameui.Update();
+  if (/*middleDistanceSum0 < 10000 && */
+      simpleHands.size() &&
+      ofGetElapsedTimef() - prevfiretime_ > 0.1) {
+    weapon.SetColor(color);
+    WeaponFire();
+    prevfiretime_ = ofGetElapsedTimef();
+    // printf("fire\n");
+  }
 }
 
 void ButtleScene::Draw() {
@@ -67,9 +111,25 @@ void ButtleScene::Draw() {
                      -ofGetHeight() / 2);
   ofPopStyle();
 
-  for (auto simpleHand : simpleHands) {
+  for (auto&& simpleHand : simpleHands) {
     ofPoint handPos = simpleHand.handPos;
-    weapon.SetPosition(handPos);
+    weapon.SetPosition(simpleHands[0].handPos);
+    // weapon.SetRotation(0, 45, 0, 1, 0);
+    double citay = atan((simpleHands[0].handPos.x -
+                         simpleHands[0].fingers[THUMB].tip.x) /
+                        (simpleHands[0].handPos.y -
+                         simpleHands[0].fingers[THUMB].tip.y));
+    double citaz = atan((simpleHands[0].fingers[INDEX].mcp.z -
+                         simpleHands[0].fingers[INDEX].tip.z) /
+                        (simpleHands[0].fingers[INDEX].tip.x -
+                         simpleHands[0].fingers[INDEX].mcp.x));
+    // printf("mcp:%f\n", simpleHands[0].fingers[INDEX].tip.x);
+    // printf("tip:%f\n", simpleHands[0].fingers[INDEX].tip.x -
+    // simpleHands[0].fingers[INDEX].mcp.x);
+    // printf("%f\n", citay * 100);
+    // printf("%f\n", citaz * 100);
+    // weapon.SetRotation(0, 180, 1, -(citay * 100) / 180, 0);
+    weapon.SetRotation(0, 180, 1, 0, (citaz * 100) / 180);
     weapon.SetColor(color);
     weapon.DrawGun();
   }
@@ -84,32 +144,7 @@ void ButtleScene::Draw() {
 void ButtleScene::KeyPressed(int _key) {
   if (_key == 'f' && simpleHands.size()) {
     weapon.SetColor(color);
-    switch (color)
-    {
-    case RED:
-      if (20 - gameui.uibar_decr_.x > 0) {
-        weapon.Fire();
-        gameui.uibar_decr_.x += 1;
-        printf("fire\n");
-      }
-      break;
-    case GREEN:
-      if (20 - gameui.uibar_decr_.y > 0) {
-        weapon.Fire();
-        gameui.uibar_decr_.y += 1;
-        printf("fire\n");
-      }
-      break;
-    case BLUE:
-      if (20 - gameui.uibar_decr_.z > 0) {
-        weapon.Fire();
-        gameui.uibar_decr_.z += 1;
-        printf("fire\n");
-      }
-      break;
-    default:
-      break;
-    }
+    WeaponFire();
   }
   if (_key == 'c') {
     ChangeColor();
@@ -119,4 +154,33 @@ void ButtleScene::KeyPressed(int _key) {
 
 void ButtleScene::ChangeColor() {
   color = Color((color + 1) % 3);
+}
+
+void ButtleScene::WeaponFire() {
+  switch (color)
+  {
+  case RED:
+    if (20 - gameui.uibar_decr_.x > 0) {
+      weapon.Fire();
+      gameui.uibar_decr_.x += 1;
+      printf("fire\n");
+    }
+    break;
+  case GREEN:
+    if (20 - gameui.uibar_decr_.y > 0) {
+      weapon.Fire();
+      gameui.uibar_decr_.y += 1;
+      printf("fire\n");
+    }
+    break;
+  case BLUE:
+    if (20 - gameui.uibar_decr_.z > 0) {
+      weapon.Fire();
+      gameui.uibar_decr_.z += 1;
+      printf("fire\n");
+    }
+    break;
+  default:
+    break;
+  }
 }

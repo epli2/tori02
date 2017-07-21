@@ -28,6 +28,9 @@ private:
   Collision collision_bullets_and_enemys_;
   Collision collision_bullets_and_player_;
   ofShader backgroundshader_;
+  float prevfiretime_;
+
+  void WeaponFire();
 
 public:
   BossScene();

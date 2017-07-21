@@ -28,8 +28,10 @@ private:
   Player player;
   std::vector<ColliderObject*> pv;
   float starttime_;
+  float prevfiretime_;
 
   void ChangeColor();
+  void WeaponFire();
 
 public:
   ButtleScene();

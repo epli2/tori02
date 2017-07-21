@@ -15,6 +15,10 @@ private:
   ofShader backgroundshader_;
   std::string shaderpath_background_ = "shader/shader_background_title.frag";
   Weapon weapon_;
+  Color color_ = GREEN;
+  float prevfiretime_;
+
+  void ChangeColor();
 
 public:
   TitleScene();

@@ -24,6 +24,7 @@ public:
   Weapon();
   void Update();
   void SetPosition(ofVec3f _position);
+  void SetRotation(int which, float angle, float rot_x, float rot_y, float r_z);
   void SetColor(Color _color);
   void DrawGun();
   void DrawBullet();

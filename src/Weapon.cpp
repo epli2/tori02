@@ -39,6 +39,11 @@ void Weapon::SetPosition(ofVec3f _position) {
   position_ = _position;
 }
 
+void Weapon::SetRotation(int which, float angle, float rot_x, float rot_y, float r_z) {
+  gun_.setRotation(which, angle, rot_x, rot_y, r_z);
+  light_.setRotation(which, angle, rot_x, rot_y, r_z);
+}
+
 void Weapon::SetColor(Color _color) {
   color_ = _color;
   switch (color_) {
@@ -74,7 +79,10 @@ void Weapon::DrawBullet() {
 }
 
 void Weapon::Fire() {
-  bullets.push_back(Bullet(position_ + ofVec3f(0, 19 * ofGetHeight() / 90, -13 * ofGetWidth() / 160), 100000, color_, ofVec3f(0, 0, -50)));
+  bullets.push_back(Bullet(position_ + ofVec3f(0, 19 * ofGetHeight() / 90, -13 * ofGetWidth() / 160),
+                    100000,
+                    color_,
+                    ofVec3f(sin(-gun_.getRotationAxis(0).z) * 100, 0, -50)));
 }
 
 std::vector<ColliderObject*> Weapon::GetObjectsPtr() {
