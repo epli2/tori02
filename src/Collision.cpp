@@ -34,7 +34,7 @@ void Collision::Update(std::vector<ColliderObject*> _objcts1, std::vector<Collid
   objcts2_ = _objcts2;
   for (auto&& obj1 : objcts1_) {
     for (auto&& obj2 : objcts2_) {
-      if (IsCollide(obj1, obj2) && (obj1->GetColor() == obj2->GetColor())) {
+      if (IsCollide(obj1, obj2) && isEffectiveAttack(obj1->GetColor(), obj2->GetColor())) {
         // printf("color = %d %d\n", obj1->GetColor(), obj2->GetColor());
         // printf("distance = %f\n", Distance(obj1->GetPosition(), obj2->GetPosition()));
         obj1->Hit();
@@ -42,6 +42,10 @@ void Collision::Update(std::vector<ColliderObject*> _objcts1, std::vector<Collid
       }
     }
   }
+}
+
+bool Collision::isEffectiveAttack(Color _a, Color _b) {
+  return (Color((_a + 1) % 3) == _b);
 }
 
 Collision::~Collision() {}
