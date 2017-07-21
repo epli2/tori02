@@ -10,13 +10,13 @@ private:
   float hp_;
   float attack_;
   EnemyType type_;
-  array<std::string, 5> modelpath_body_{ "models2/mob1_body.obj",
-                                         "models2/mob2_body.obj",
-                                         "models2/box.obj",
-                                         "models2/box2.obj",
-                                         "models2/box3.obj" };
-  array<std::string, 2> modelpath_light_{ "models2/mob1_light.obj",
-                                          "models2/mob2_light.obj" };
+  array<std::string, 5> modelpath_body_{ "models/mob1_body.obj",
+                                         "models/mob2_body.obj",
+                                         "models/box.obj",
+                                         "models/box2.obj",
+                                         "models/box3.obj" };
+  array<std::string, 2> modelpath_light_{ "models/mob1_light.obj",
+                                          "models/mob2_light.obj" };
   ofxAssimpModelLoader body_;
   ofxAssimpModelLoader light_;
   std::string shaderpath_ = "shader/shader_sin.frag";

@@ -8,10 +8,10 @@
 
 class Boss : public ColliderObject {
 private:
-  std::string modelpath_body_ = "models2/robot_nomal.dae";
-  std::string modelpath_body_atk1_ = "models2/robot_atk1.dae";
-  std::string modelpath_body_atk2_ = "models2/robot_atk2.dae";
-  std::string modelpath_body_damage_ = "models2/robot_dam.dae";
+  std::string modelpath_body_ = "models/robot_nomal.dae";
+  std::string modelpath_body_atk1_ = "models/robot_atk1.dae";
+  std::string modelpath_body_atk2_ = "models/robot_atk2.dae";
+  std::string modelpath_body_damage_ = "models/robot_dam.dae";
   ofxAssimpModelLoader body_;
   ofxAssimpModelLoader body_atk1_;
   ofxAssimpModelLoader body_atk2_;
