@@ -173,7 +173,7 @@ void Boss::Hit() {
   hp_ -= 1;
   flinch_ += 1;
   printf("Boss: Hit!\n");
-  printf("Boss: HP = %f", hp_);
+  printf("Boss: HP = %f\n", hp_);
 }
 
 void Boss::GetHPPtr(float* _hp) {
