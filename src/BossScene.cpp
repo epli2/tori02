@@ -29,7 +29,7 @@ BossScene::BossScene() {
 
 void BossScene::Update() {
   if (player_.hp_ <= 0) {
-    isend_ = true;
+    isgameover_ = true;
   }
   if (boss_.hp_ <= 0) {
     isgameclear_ = true;
