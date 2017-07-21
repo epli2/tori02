@@ -3,6 +3,7 @@
 StartScene::StartScene() {
   name_ = "start";
   isend_ = false;
+  isgameover_ = false;
   img_tori_.load(imgpath_tori_);
   img_title_.load(imgpath_title_);
   img_title_.resize(img_title_.getWidth() / 2.5, img_title_.getHeight() / 2.5);

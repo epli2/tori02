@@ -11,6 +11,7 @@
 #include "TitleScene.h"
 #include "ButtleScene.h"
 #include "BossScene.h"
+#include "DeadScene.h"
 #include "EndScene.h"
 
 class ofApp : public ofBaseApp {

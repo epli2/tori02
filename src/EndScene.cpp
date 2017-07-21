@@ -3,6 +3,7 @@
 EndScene::EndScene() {
   name_ = "end";
   isend_ = false;
+  isgameover_ = false;
   ofTrueTypeFont::setGlobalDpi(72);
   font_.load("Verdana.ttf", 30);
   font_.setLineHeight(24);

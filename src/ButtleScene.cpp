@@ -3,6 +3,7 @@
 ButtleScene::ButtleScene() {
   name_ = "buttle";
   isend_ = false;
+  isgameover_ = false;
   leap.open();
   leap.setReceiveBackgroundFrames(true);
   cam.setOrientation(ofPoint(0, 0, 0));
@@ -19,10 +20,15 @@ ButtleScene::ButtleScene() {
   glEnable(GL_NORMALIZE);
   glEnable(GL_LIGHTING);
   light.enable();
+  starttime_ = ofGetElapsedTimef();
 }
 
 void ButtleScene::Update() {
+  float etime = ofGetElapsedTimef() - starttime_;
   if (player.hp_ <= 0) {
+    isgameover_ = true;
+  }
+  if (etime > 120) {
     isend_ = true;
   }
   fingersFound.clear();

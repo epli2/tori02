@@ -2,6 +2,8 @@
 
 TitleScene::TitleScene() {
   name_ = "title";
+  isend_ = false;
+  isgameover_ = false;
   leap_.open();
   leap_.setReceiveBackgroundFrames(true);
   backgroundshader_.load("", shaderpath_background_);

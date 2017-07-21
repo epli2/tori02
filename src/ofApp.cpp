@@ -14,6 +14,10 @@ void ofApp::setup() {
 
 void ofApp::update() {
   nowscene->Update();
+  if (nowscene->isgameover_) {
+    delete nowscene;
+    nowscene = new DeadScene();
+  }
   if (nowscene->isend_) {
     nextScene();
   }
@@ -63,6 +67,10 @@ void ofApp::nextScene() {
     nowscene = new EndScene();
   }
   else if (nowscene->GetName() == "end") {
+    delete nowscene;
+    nowscene = new StartScene();
+  }
+  else if (nowscene->GetName() == "dead") {
     delete nowscene;
     nowscene = new StartScene();
   }

@@ -3,6 +3,7 @@
 BossScene::BossScene() {
   name_ = "boss";
   isend_ = false;
+  isgameover_ = false;
   leap_.open();
   leap_.setReceiveBackgroundFrames(true);
   cam_.setOrientation(ofPoint(0, 0, 0));

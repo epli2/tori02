@@ -27,6 +27,7 @@ private:
   ofShader backgroundshader;
   Player player;
   std::vector<ColliderObject*> pv;
+  float starttime_;
 
   void ChangeColor();
 

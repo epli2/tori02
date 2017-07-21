@@ -8,6 +8,7 @@ protected:
 
 public:
   bool isend_;
+  bool isgameover_;
   Scene() {};
   virtual void Update() = 0;
   virtual void Draw() = 0;
