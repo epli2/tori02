@@ -30,6 +30,8 @@ private:
   float firetime_;
   static const int NCHILDREN = 20;
   float* hpptr_;
+  float flinch_;
+  float flinchtime_;
 
 public:
   float hp_;

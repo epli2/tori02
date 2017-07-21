@@ -5,6 +5,7 @@ Boss::Boss() : Boss(ofVec3f(0, -500, -1500), GREEN, 500) {}
 Boss::Boss(ofVec3f _position, Color _color, float _radius)
   : ColliderObject(_position, true, _color, CIRCLE, _radius) {
   hp_ = 100;
+  flinch_ = 0;
   body_ = ModelInit(modelpath_body_);
   body_.playAllAnimations();
   body_atk1_ = ModelInit(modelpath_body_atk1_);
@@ -12,6 +13,7 @@ Boss::Boss(ofVec3f _position, Color _color, float _radius)
   body_damage_ = ModelInit(modelpath_body_damage_);
   bossstatus_ = NORMAL;
   bodyptr_ = &body_;
+  flinchtime_ = ofGetElapsedTimef();
 
   for (int i = 0; i < NUM; i++) {
     freq_[i] = ofRandom(4.0, 10.0);
@@ -21,7 +23,15 @@ Boss::Boss(ofVec3f _position, Color _color, float _radius)
 }
 
 void Boss::Update() {
-  if (bodyptr_->getAnimation(0).isFinished()) {
+  if (flinch_ > 5) {
+    bossstatus_ = DAMAGE;
+    bodyptr_ = &body_damage_;
+    bodyptr_->playAllAnimations();
+    flinch_ = 0;
+    flinchtime_ = ofGetElapsedTimef();
+    printf("Boss: flinch\n");
+  }
+  if (bodyptr_->getAnimation(0).isFinished() && ofGetElapsedTimef() - flinchtime_ > 1) {
     int rnd = int(ofRandom(40, 100));
     printf("rnd = %d\n", rnd);
     if (rnd < 50) {
@@ -161,6 +171,7 @@ void Boss::Fire() {
 
 void Boss::Hit() {
   hp_ -= 1;
+  flinch_ += 1;
   printf("Boss: Hit!\n");
   printf("Boss: HP = %f", hp_);
 }
