@@ -5,19 +5,14 @@ DeadScene::DeadScene() {
   isend_ = false;
   isgameover_ = false;
   isgameclear_ = false;
-  ofTrueTypeFont::setGlobalDpi(72);
+  img_gameover_.load(imgpath_gameover_);
   ofBackground(0, 0, 0);
 }
 
 void DeadScene::Update() {}
 
 void DeadScene::Draw() {
-  verdana.load("Verdana.ttf", 30);
-  verdana.setLineHeight(24);
-  verdana.setLetterSpacing(1.0);
-  ofSetColor(120, 120, 120);
-  // ofRect(ofGetWidth()/2,ofGetHeight()/2,400,200);
-  verdana.drawString("Game Over", ofGetWidth() / 2 - 10, ofGetHeight() / 2);
+  img_gameover_.draw(ofGetWidth() / 2 - img_gameover_.getWidth() / 2, ofGetHeight() / 2 - img_gameover_.getHeight() / 2);
 }
 
 void DeadScene::KeyPressed(int key) {}

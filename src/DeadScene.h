@@ -14,4 +14,6 @@ public:
 
 private:
   ofTrueTypeFont verdana;
+  std::string imgpath_gameover_ = "GameOver.png";
+  ofImage img_gameover_;
 };
