@@ -19,6 +19,7 @@ BossScene::BossScene() {
   glEnable(GL_LIGHTING);
   light_.enable();
   weapon_.SetColor(color_);
+  boss_.GetHPPtr(&player_.hp_);
 }
 
 void BossScene::Update() {

@@ -29,6 +29,7 @@ private:
   ofxAssimpModelLoader* bodyptr_;
   float firetime_;
   static const int NCHILDREN = 20;
+  float* hpptr_;
 
 public:
   Boss();
@@ -42,6 +43,7 @@ public:
   void ChangeColor();
   void Fire();
   void Hit();
+  void GetHPPtr(float* _hp);
   ofxAssimpModelLoader ModelInit(std::string modelpath);
   std::vector<ColliderObject*> GetBulletsPtr();
   std::vector<ColliderObject*> GetEnemysPtr();

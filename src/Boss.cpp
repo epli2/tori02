@@ -56,6 +56,7 @@ void Boss::Update() {
       bodyptr_ = &body_atk1_;
       bodyptr_->resetAllAnimations();
       bodyptr_->playAllAnimations();
+      *hpptr_ -= 1;
       printf("Boss: punch\n");
     }
     printf("Boss: animationcount = %d\n", bodyptr_->getAnimationCount());
@@ -159,6 +160,10 @@ void Boss::Fire() {
 
 void Boss::Hit() {
   printf("Boss: Hit!\n");
+}
+
+void Boss::GetHPPtr(float* _hp) {
+  hpptr_ = _hp;
 }
 
 ofxAssimpModelLoader Boss::ModelInit(std::string modelpath) {
