@@ -18,6 +18,10 @@ void ofApp::update() {
     delete nowscene;
     nowscene = new DeadScene();
   }
+  if (nowscene->isgameclear_) {
+    delete nowscene;
+    nowscene = new EndScene();
+  }
   if (nowscene->isend_) {
     nextScene();
   }

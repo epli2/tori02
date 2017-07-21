@@ -4,6 +4,7 @@ BossScene::BossScene() {
   name_ = "boss";
   isend_ = false;
   isgameover_ = false;
+  isgameclear_ = false;
   leap_.open();
   leap_.setReceiveBackgroundFrames(true);
   cam_.setOrientation(ofPoint(0, 0, 0));
@@ -26,6 +27,9 @@ BossScene::BossScene() {
 void BossScene::Update() {
   if (player_.hp_ <= 0) {
     isend_ = true;
+  }
+  if (boss_.hp_ <= 0) {
+    isgameclear_ = true;
   }
   fingersFound_.clear();
   simpleHands_ = leap_.getSimpleHands();

@@ -4,6 +4,7 @@ Boss::Boss() : Boss(ofVec3f(0, -500, -1500), GREEN, 500) {}
 
 Boss::Boss(ofVec3f _position, Color _color, float _radius)
   : ColliderObject(_position, true, _color, CIRCLE, _radius) {
+  hp_ = 100;
   body_ = ModelInit(modelpath_body_);
   body_.playAllAnimations();
   body_atk1_ = ModelInit(modelpath_body_atk1_);
@@ -159,7 +160,9 @@ void Boss::Fire() {
 }
 
 void Boss::Hit() {
+  hp_ -= 1;
   printf("Boss: Hit!\n");
+  printf("Boss: HP = %f", hp_);
 }
 
 void Boss::GetHPPtr(float* _hp) {

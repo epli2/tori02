@@ -32,6 +32,7 @@ private:
   float* hpptr_;
 
 public:
+  float hp_;
   Boss();
   Boss(ofVec3f _position, Color _color, float _radius);
   void Update();

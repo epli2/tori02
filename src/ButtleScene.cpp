@@ -4,6 +4,7 @@ ButtleScene::ButtleScene() {
   name_ = "buttle";
   isend_ = false;
   isgameover_ = false;
+  isgameclear_ = false;
   leap.open();
   leap.setReceiveBackgroundFrames(true);
   cam.setOrientation(ofPoint(0, 0, 0));

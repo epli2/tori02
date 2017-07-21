@@ -4,6 +4,7 @@ DeadScene::DeadScene() {
   name_ = "dead";
   isend_ = false;
   isgameover_ = false;
+  isgameclear_ = false;
   ofTrueTypeFont::setGlobalDpi(72);
   ofBackground(0, 0, 0);
 }
