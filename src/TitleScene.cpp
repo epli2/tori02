@@ -1,6 +1,9 @@
 #include "TitleScene.h"
 
-TitleScene::TitleScene() {
+TitleScene::TitleScene() :
+  startbutton_(MenuButton(ofVec3f(ofGetWidth() - 1600, ofGetHeight() - 800, -1500), RED, 10, 10, modelpath_startpanel_)),
+  exitbutton_(MenuButton(ofVec3f(ofGetWidth() - 1600, ofGetHeight() - 1700, -1500), GREEN, 10, 10, modelpath_exitpanel_))
+{
   name_ = "title";
   isend_ = false;
   isgameover_ = false;
@@ -109,6 +112,8 @@ void TitleScene::Draw() {
     weapon_.DrawGun();
   }
   weapon_.DrawBullet();
+  startbutton_.Draw();
+  exitbutton_.Draw();
   cam_.end();
 }
 

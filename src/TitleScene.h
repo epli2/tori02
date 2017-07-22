@@ -2,6 +2,8 @@
 
 #include "ofMain.h"
 #include "ofxLeapMotion2.h"
+#include "Collision.h"
+#include "MenuButton.h"
 #include "Scene.h"
 #include "Weapon.h"
 
@@ -16,8 +18,12 @@ private:
   ofSoundPlayer bgm_;
   std::string shaderpath_background_ = "shader/shader_background_title.frag";
   std::string bgmpath_ = "music/op01.mp3";
+  std::string modelpath_startpanel_ = "models/START.obj";
+  std::string modelpath_exitpanel_ = "models/EXIT.obj";
   Weapon weapon_;
   Color color_ = GREEN;
+  MenuButton startbutton_;
+  MenuButton exitbutton_;
   float prevfiretime_;
   int i = 0;
 

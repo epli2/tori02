@@ -180,6 +180,7 @@
     <ClCompile Include="src\EnemyCloud.cpp" />
     <ClCompile Include="src\GameUI.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MenuButton.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
@@ -211,6 +212,7 @@
     <ClInclude Include="src\EndScene.h" />
     <ClInclude Include="src\EnemyCloud.h" />
     <ClInclude Include="src\GameUI.h" />
+    <ClInclude Include="src\MenuButton.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Bullet.h" />
     <ClInclude Include="src\Common.h" />
