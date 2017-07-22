@@ -117,7 +117,8 @@ void TitleScene::KeyPressed(int _key) {
     weapon_.Fire();
   }
   if (_key == 'c') {
-    ChangeColor();
+    color_ = Color((color_ + 1) % 3);
+    // ChangeColor();
   }
 }
 

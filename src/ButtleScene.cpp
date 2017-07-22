@@ -151,7 +151,8 @@ void ButtleScene::KeyPressed(int _key) {
     WeaponFire();
   }
   if (_key == 'c') {
-    ChangeColor();
+    color = Color((color + 1) % 3);
+    // ChangeColor();
     printf("%d\n", color);
   }
 }

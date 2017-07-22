@@ -140,7 +140,8 @@ void BossScene::KeyPressed(int _key) {
     WeaponFire();
   }
   if (_key == 'c') {
-    ChangeColor();
+    color_ = Color((color_ + 1) % 3);
+    // ChangeColor();
   }
 }
 
