@@ -20,6 +20,9 @@ EndScene::EndScene() {
   bgm_.loadSound(bgmpath_);
   bgm_.setVolume(0.5f);
   bgm_.play();
+#ifdef USE_DIMENCO_OPENGL_INTERFACE
+  x = -1930; y = -810;
+#endif
 }
 
 void EndScene::Update() {}
@@ -36,11 +39,11 @@ void EndScene::Draw() {
     std::string staffname = xml_names_.getValue<std::string>("name[" + std::to_string(i) + "]");
     ofPushStyle();
     ofSetColor(255, 255, 255);
-    font_.drawString(staffname, ofGetWidth() / 2 - font_.getSpaceSize(), posY + ofGetHeight() * count++);
+    font_.drawString(staffname, ofGetWidth() / 2 - font_.getSpaceSize() + x, posY + ofGetHeight() * count++ + y);
     ofPopStyle();
   }
-  img_tori_.draw(ofGetWidth() / 2 - img_tori_.getWidth() / 2, posY + ofGetHeight() * ++count);
-  img_title_.draw(ofGetWidth() / 2 - img_title_.getWidth() / 2, posY + img_tori_.getHeight() + ofGetHeight() * ++count);
+  img_tori_.draw(ofGetWidth() / 2 - img_tori_.getWidth() / 2 + x, posY + ofGetHeight() * ++count + y);
+  img_title_.draw(ofGetWidth() / 2 - img_title_.getWidth() / 2 + x, posY + img_tori_.getHeight() + ofGetHeight() * ++count + y);
 }
 
 void EndScene::KeyPressed(int _key) {

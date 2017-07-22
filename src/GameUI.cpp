@@ -32,6 +32,8 @@ void GameUI::Setup() {
   uimat_.enableMaterials();
   shader_.load("", shaderpath_uimat_);
   uibar_decr_ = ofVec3f(0);
+
+  // fix_x = -1930; fix_y = -810;
 }
 
 void GameUI::Update() {
@@ -44,27 +46,27 @@ void GameUI::Update() {
   if (uibar_decr_.z > 0) {
     uibar_decr_.z -= 0.01;
   }
-  uibar_r_.setPosition(20 + uibar_decr_.x * 6.8, ofGetHeight(), 0);
+  uibar_r_.setPosition(20 + uibar_decr_.x * 6.8 + fix_x, ofGetHeight() + fix_y, 0);
   uibar_r_.setScale(20 - uibar_decr_.x, 20, 10);
-  uibar_g_.setPosition(20 + uibar_decr_.y * 6.8, ofGetHeight(), 0);
+  uibar_g_.setPosition(20 + uibar_decr_.y * 6.8 + fix_x, ofGetHeight() + fix_y, 0);
   uibar_g_.setScale(20 - uibar_decr_.y, 20, 10);
-  uibar_b_.setPosition(20 + uibar_decr_.z * 6.8, ofGetHeight(), 0);
+  uibar_b_.setPosition(20 + uibar_decr_.z * 6.8 + fix_x, ofGetHeight() + fix_y, 0);
   uibar_b_.setScale(20 - uibar_decr_.z, 20, 10);
 }
 
 void GameUI::Draw() {
   ofPushStyle();
   ofSetColor(30, 200, 200);
-  verdana.drawString("SCORE : " + ofToString(score_), ofGetWidth() - (ofGetWidth() / 9), ofGetHeight() / 20);
-  verdana.drawString("HP: " + ofToString(playerhp_), ofGetWidth() - (ofGetWidth() / 9), ofGetHeight() / 10);
+  verdana.drawString("SCORE : " + ofToString(score_), ofGetWidth() - (ofGetWidth() / 9) + fix_x, ofGetHeight() / 20 + fix_y);
+  verdana.drawString("HP: " + ofToString(playerhp_), ofGetWidth() - (ofGetWidth() / 9) + fix_x, ofGetHeight() / 10 + fix_y);
   if (bosshp_ >= 0) {
-    verdana.drawString("BOSS HP: " + ofToString(bosshp_), 0, ofGetHeight() / 20);
+    verdana.drawString("BOSS HP: " + ofToString(bosshp_), 0 + fix_x, ofGetHeight() / 20 + fix_y);
   }
   ofPopStyle();
 
-  uipanel_.setPosition(0, ofGetHeight(), 0);
+  uipanel_.setPosition(0, ofGetHeight() + fix_x, 0 + fix_y);
   uipanel_.drawFaces();
-  uimat_.setPosition(0, ofGetHeight(), 0);
+  uimat_.setPosition(0, ofGetHeight() + fix_x, 0 + fix_y);
   shader_.begin();
   shader_.setUniform1f("time", ofGetElapsedTimef());
   shader_.setUniform2f("resolution", ofGetWidth(), ofGetHeight());

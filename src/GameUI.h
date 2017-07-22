@@ -23,6 +23,7 @@ private:
   ofxAssimpModelLoader uibar_g_;
   ofxAssimpModelLoader uibar_b_;
   ofShader shader_;
+  int fix_x = 0, fix_y = 0;
 
 public:
   static int score_;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofApp.h"
 #include "Scene.h"
 
 class StartScene : public Scene {
@@ -10,6 +11,7 @@ private:
   ofImage img_tori_;
   ofImage img_title_;
   float starttime;
+  int x = 0, y = 0;
 
 public:
   StartScene();

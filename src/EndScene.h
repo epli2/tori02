@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofApp.h"
 #include "Scene.h"
 
 class EndScene : public Scene {
@@ -15,6 +16,7 @@ private:
   ofSoundPlayer bgm_;
   float starttime_;
   float speed_;
+  int x = 0, y = 0;
 
 public:
   EndScene();
