@@ -170,6 +170,7 @@ void Boss::Fire() {
 }
 
 void Boss::Hit() {
+  GameUI::score_ += 1;
   hp_ -= 1;
   flinch_ += 1;
   printf("Boss: Hit!\n");

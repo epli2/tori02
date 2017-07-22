@@ -112,6 +112,7 @@ void Enemy::Fire() {
 }
 
 void Enemy::Hit() {
+  GameUI::score_ += 1;
   isalive_ = false;
 }
 

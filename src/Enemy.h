@@ -3,6 +3,7 @@
 #include "Bullet.h"
 #include "Common.h"
 #include "ColliderObject.h"
+#include "GameUI.h"
 #include "ofxAssimpModelLoader.h"
 
 class Enemy : public ColliderObject {

@@ -1,6 +1,8 @@
 #include "GameUI.h"
 
-GameUI::GameUI() : color_(GREEN), ccolor_(ofColor(232, 60, 55)), sp_(0) {}
+int GameUI::score_;
+
+GameUI::GameUI() : color_(GREEN), ccolor_(ofColor(232, 60, 55)) {}
 
 GameUI::~GameUI() {}
 
@@ -53,7 +55,7 @@ void GameUI::Update() {
 void GameUI::Draw() {
   ofPushStyle();
   ofSetColor(30, 200, 200);
-  verdana.drawString("SCORE : " + ofToString(sp_), ofGetWidth() - (ofGetWidth() / 9), ofGetHeight() / 20);
+  verdana.drawString("SCORE : " + ofToString(score_), ofGetWidth() - (ofGetWidth() / 9), ofGetHeight() / 20);
   verdana.drawString("HP: " + ofToString(playerhp_), ofGetWidth() - (ofGetWidth() / 9), ofGetHeight() / 10);
   if (bosshp_ >= 0) {
     verdana.drawString("BOSS HP: " + ofToString(bosshp_), 0, ofGetHeight() / 20);

@@ -6,7 +6,6 @@
 
 class GameUI {
 private:
-  int sp_;
   float playerhp_;
   float bosshp_;
   Color color_;
@@ -26,6 +25,7 @@ private:
   ofShader shader_;
 
 public:
+  static int score_;
   ofVec3f uibar_decr_;
   GameUI();
   ~GameUI();
