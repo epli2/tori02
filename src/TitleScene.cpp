@@ -122,5 +122,7 @@ void TitleScene::KeyPressed(int _key) {
 }
 
 void TitleScene::ChangeColor() {
-  color_ = Color((color_ + 1) % 3);
+  if (++i % 50 == 0) {
+    color_ = Color((color_ + 1) % 3);
+  }
 }

@@ -157,7 +157,9 @@ void ButtleScene::KeyPressed(int _key) {
 }
 
 void ButtleScene::ChangeColor() {
-  color = Color((color + 1) % 3);
+  if (++i % 50 == 0) {
+    color = Color((color + 1) % 3);
+  }
 }
 
 void ButtleScene::WeaponFire() {

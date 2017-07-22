@@ -31,6 +31,7 @@ private:
   std::string bgmpath_ = "music/boss.mp3";
   ofSoundPlayer bgm_;
   float prevfiretime_;
+  int i = 0;
 
   void ChangeColor();
   void WeaponFire();

@@ -147,7 +147,9 @@ void BossScene::KeyPressed(int _key) {
 void BossScene::KeyReleased(int _key) {}
 
 void BossScene::ChangeColor() {
-  color_ = Color((color_ + 1) % 3);
+  if (++i % 50 == 0) {
+    color_ = Color((color_ + 1) % 3);
+  }
 }
 
 void BossScene::WeaponFire() {

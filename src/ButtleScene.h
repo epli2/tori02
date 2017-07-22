@@ -31,6 +31,7 @@ private:
   ofSoundPlayer bgm_;
   float starttime_;
   float prevfiretime_;
+  int i = 0;
 
   void ChangeColor();
   void WeaponFire();

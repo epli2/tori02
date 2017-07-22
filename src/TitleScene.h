@@ -19,6 +19,7 @@ private:
   Weapon weapon_;
   Color color_ = GREEN;
   float prevfiretime_;
+  int i = 0;
 
   void ChangeColor();
 
